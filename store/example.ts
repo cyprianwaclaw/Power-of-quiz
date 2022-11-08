@@ -1,8 +1,9 @@
 import {defineStore} from 'pinia'
 import axios from 'axios'
+import {Token} from '@/store/configAxios'
 
 axios.defaults.baseURL = 'https://quiz.bojarm.pl/api'
-const token = '71|VfqwT2hId4gmZXjag0SOuwA23AwMiZwvMV8WfinQ'
+const token = Token
 
 interface Post{ 
     "success": boolean,

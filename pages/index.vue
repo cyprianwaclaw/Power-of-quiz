@@ -8,7 +8,7 @@
  </div></template>
     
 <script setup lang="ts">
-import {user} from '@/stores/example'
+import {user} from '@/store/example'
   const postStore = user()
   postStore.getPost()
 </script>
