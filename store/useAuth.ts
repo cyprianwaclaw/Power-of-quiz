@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
-import axios from 'axios'
+import { axiosInstance } from '@/configAxios'
+
 
 export const useAuth = defineStore('auth',{
 
@@ -7,8 +8,17 @@ export const useAuth = defineStore('auth',{
         user:[],
         acess_token:[],
     }),
+
     actions:{
-        
+        async loginUser(email:string, password:string){
+            try{
+                const res = await axiosInstance.post('/login',{email, password})
+                this.user = await res.data
+        }catch(e){
+            console.log(e)
+        }
+    },
+
     }
 
 })

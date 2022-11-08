@@ -1,16 +1,6 @@
 import {defineStore} from 'pinia'
-import axios from 'axios'
-import {Token} from '@/store/configAxios'
-
-axios.defaults.baseURL = 'https://quiz.bojarm.pl/api'
-const token = Token
-
-interface Post{ 
-    "success": boolean,
-    "data": string[],
-    "message": string,
-    "count": number
-}
+import {Post} from '@/api/types'
+import {axiosInstance} from '@/configAxios'
 
 export const user = defineStore('user',{
 
@@ -19,12 +9,7 @@ export const user = defineStore('user',{
     }),
     actions:{
         async getPost(){
-            const res = await  axios.get<Post[]>('/quizzes/fast-two',{
-                headers: {
-                    "Content-Type": "application/json",
-                    Accept: "application/json",
-                    Authorization: `Bearer ${token}`,
-                  }
+            const res = await  axiosInstance.get<Post[]>('/quizzes/fast-two',{
             })
             try{
                 this.posts = await res

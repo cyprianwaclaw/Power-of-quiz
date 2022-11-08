@@ -14,7 +14,7 @@
                     </div>   
                     <div class="columns-3 flex w-full justify-end">
                         <h2 class="pr-10 navtext text-white">Kontakt</h2>
-                        <h2 class="pr-3.5 navtext text-white">Zaloguj się</h2>
+                        <NuxtLink to="/login"><h2 class="pr-3.5 navtext text-white">Zaloguj się</h2></NuxtLink>
                         <div class="border-l-2 pl-3.5"><h2 class="navtext text-white">Zarejestruj</h2></div> 
                     </div>
             </div>
