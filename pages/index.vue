@@ -2,8 +2,7 @@
    <div class="hero-image"></div>
    <h1>tessdsdt</h1>
    <div v-for="response in postStore.posts" :key="response">
-    <h1 v-for="post in response.data" :key="post.id">test: {{post.title}}</h1> 
-
+    <h1 v-for="post in response.data" :key="post">test: {{post.title}} </h1> 
 
    </div>
  </div></template>

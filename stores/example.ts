@@ -1,6 +1,9 @@
 import {defineStore} from 'pinia'
 import axios from 'axios'
 
+axios.defaults.baseURL = 'https://quiz.bojarm.pl/api'
+const token = '71|VfqwT2hId4gmZXjag0SOuwA23AwMiZwvMV8WfinQ'
+
 interface Post{ 
     "success": boolean,
     "data": string[],
@@ -15,11 +18,11 @@ export const user = defineStore('user',{
     }),
     actions:{
         async getPost(){
-            const res = await axios.get<Post[]>('https://quiz.bojarm.pl/api/quizzes/fast-two',{
+            const res = await  axios.get<Post[]>('/quizzes/fast-two',{
                 headers: {
                     "Content-Type": "application/json",
                     Accept: "application/json",
-                    Authorization: `Bearer 71|VfqwT2hId4gmZXjag0SOuwA23AwMiZwvMV8WfinQ`,
+                    Authorization: `Bearer ${token}`,
                   }
             })
             try{
