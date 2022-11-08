@@ -1,10 +1,10 @@
 <template><div>
    <div class="hero-image"></div>
    <h1>tessdsdt</h1>
-   <div v-for="post in postStore.posts" :key="post">
-      tytul: {{post.success && post.data[0].title}}
-      tytul: {{post.success && post.data[1].title}}
-      
+   <div v-for="response in postStore.posts" :key="response">
+    <h1 v-for="post in response.data" :key="post.id">test: {{post.title}}</h1> 
+
+
    </div>
  </div></template>
     
@@ -12,7 +12,6 @@
 import {user} from '@/stores/example'
   const postStore = user()
   postStore.getPost()
-  console.log(postStore)
 </script>
     
 <style scoped>
