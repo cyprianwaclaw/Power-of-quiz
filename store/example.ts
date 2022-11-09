@@ -1,6 +1,8 @@
 import {defineStore} from 'pinia'
 import {Post} from '@/api/types'
-import {axiosInstance} from '@/configAxios'
+import {axiosInstance} from '~~/axios.config'
+import {useAuth} from '@/store/useAuth'
+
 
 export const user = defineStore('user',{
 

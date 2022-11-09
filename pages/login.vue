@@ -14,20 +14,22 @@
 </template>
 
 <script setup lang="ts">
-import {ref} from 'vue'
+import {ref, onMounted} from 'vue'
 import { useAuth } from '@/store/useAuth';
 
-
+const authStore = useAuth();
 const password = ref(null)
 const email = ref(null)
 
-const login = useAuth()
-const authStore = useAuth();
-
 async function onSubmit() {
-    await authStore.loginUser(email.value, password.value);
+    await authStore.loginUser(email.value, password.value); 
+   
 }
 
+console.log(authStore.access_token)
+onMounted(()=>{
+    
+})
 </script>
 
 <style scoped>

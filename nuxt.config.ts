@@ -3,7 +3,7 @@ export default defineNuxtConfig({
 
 
     transpile: ['gsap'],
-    modules: ['@nuxtjs/tailwindcss', '@nuxtjs/google-fonts', '@pinia/nuxt', 'nuxt-icon',],
+    modules: ['cookie-universal-nuxt','@nuxtjs/tailwindcss', '@nuxtjs/google-fonts', '@pinia/nuxt', 'nuxt-icon',],
     target: 'static',
     ssr: false,
     css: ['@/assets/css/tailwind.css', '@/assets/css/style.scss'],
