@@ -8,7 +8,7 @@
         <button >Zaloguj</button>   
         </form>
         <div class="mt-10 px-10 mx-auto">
-            {{authStore}}
+            
         </div>
     </div>
 </template>
