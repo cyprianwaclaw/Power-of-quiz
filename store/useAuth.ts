@@ -14,8 +14,9 @@ export const useAuth = defineStore('auth',{
             try{
                 const res = await axiosInstance.post('/login',{email, password})
                 this.user = await res.data
+                console.log('zalogowano')
         }catch(e){
-            console.log(e)
+            console.log(e.response.data)
         }
     },
 

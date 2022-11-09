@@ -7,6 +7,9 @@
         <input type="password" v-model="password"/>
         <button >Zaloguj</button>   
         </form>
+        <div class="mt-10 px-10 mx-auto">
+            {{authStore}}
+        </div>
     </div>
 </template>
 
@@ -15,15 +18,14 @@ import {ref} from 'vue'
 import { useAuth } from '@/store/useAuth';
 
 
-const password = ref('')
-const email = ref('')
+const password = ref(null)
+const email = ref(null)
 
 const login = useAuth()
+const authStore = useAuth();
 
-async function onSubmit(values) {
-    const authStore = useAuth();
-    const { email, password } = values;
-    await authStore.loginUser(email, password);
+async function onSubmit() {
+    await authStore.loginUser(email.value, password.value);
 }
 
 </script>
