@@ -24,8 +24,8 @@ $border-color: #DCDCDC;
 
 .hero-image{
       /* The image used */
-  background-image: url("~/assets/file/background.png");
-
+    /*  background-image: url("~/assets/file/background.png");*/
+  background-color: #F1F1F1;  
   /* Full height */
   height: 100vh; 
 
@@ -33,6 +33,6 @@ $border-color: #DCDCDC;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  margin-top: -168px;
+  margin-top: px;
 
 }

@@ -1,6 +1,6 @@
 <template>
 <div class="z-20">
-        <div class="md:mx-auto 2xl:px-14 lg:px-10 md:px-4 md:pt-6 md:pb-6 hidden md:block bac-white">
+        <div class=" md:mx-auto 2xl:px-14 lg:px-10 md:px-4 md:pt-5 md:pb-3 hidden md:block bac-white">
             <div class="columns-2">
              <div class=" flex w-full">
                   <NuxtLink to="/"><img class="image-width" src="@/assets/file/logo.png"/> </NuxtLink>
@@ -21,9 +21,11 @@ import gsap from 'gsap';
 </script>
 <style lang="scss" scoped>
 .image-width{
-    width:250px; 
+    width:240px; 
 }
 .bac-white{
     background-color: white !important;
+    border: 1px solid #C0CEDC;
+    box-shadow: 0px -1px 11px rgba(0, 0, 0, 0.17);
 }
 </style>
