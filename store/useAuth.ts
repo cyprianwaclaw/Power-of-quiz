@@ -19,7 +19,8 @@ export const useAuth = defineStore('auth',{
                 console.log('Imię użytkownika: ' + res.data.user.name)
                 console.log('Email użytkownika: ' +res.data.user.email)
                 console.log('Access token: ' +res.data.access_token)
-               await useRouter().push('/')
+             // await useRouter().push('/')
+               await window.location.replace("http://localhost:3000/");
               
              }catch(e){
             console.log(e.response.data)

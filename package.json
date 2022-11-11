@@ -20,6 +20,7 @@
     "cookie-universal-nuxt": "^2.2.2",
     "cors": "^2.8.5",
     "gsap": "^3.11.1",
+    "locomotive-scroll": "^4.1.4",
     "pinia": "^2.0.22",
     "pinia-plugin-persistedstate": "^2.3.0",
     "sass": "^1.56.0",

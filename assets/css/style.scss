@@ -1,4 +1,19 @@
+$text-black: #1E1919;
+$border-color: #DCDCDC;
 
+
+.primary-button{
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top:10px;
+    padding-bottom: 10px; 
+    border-radius: 999px;
+    border-color: $border-color !important;
+    color:$text-black
+}
+.text-black1{
+    color: $text-black;
+}
 
 .navtext{
     font-weight: 500;
@@ -7,14 +22,9 @@
     line-height: 1.25rem; /* 20px */
 }
 
-.bg-linear1{
-    background: linear-gradient(180deg, #000000 11.43%, rgba(0, 0, 0, 0.74) 48.79%, rgba(0, 0, 0, 0) 85.7%);
-    position: relative;
-}
-
 .hero-image{
       /* The image used */
-  background-image: url("~/assets/file/MODEL8.jpg");
+  background-image: url("~/assets/file/background.png");
 
   /* Full height */
   height: 100vh; 
