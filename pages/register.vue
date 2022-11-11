@@ -65,7 +65,6 @@
     
     async function Register() {
         await authStore.RegisterUser(email.value, password.value, password_confirmation.value, invitation.value, name.value ); 
-       
     }
     
     </script>

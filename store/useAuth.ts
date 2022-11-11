@@ -17,8 +17,8 @@ export const useAuth = defineStore('auth',{
                 this.user = await res.data.user
                 this.access_token = await res.data.access_token
                 localStorage.setItem("access_token", res.data.access_token)
-             // await useRouter().push('/')
-               await window.location.replace("https://power-of-quiz-dev.vercel.app/");
+                await useRouter().push('/')
+              // await window.location.replace("https://power-of-quiz-dev.vercel.app/");
               
              }catch(e){
             console.log(e.response.data)
@@ -33,12 +33,10 @@ export const useAuth = defineStore('auth',{
                 localStorage.setItem("access_token", res.data.access_token)
                 await useRouter().push('/')
               // await window.location.replace("https://power-of-quiz-dev.vercel.app/");
-              
              }catch(e){
             console.log(e.response.data)
              }
           },
-
 
     }
 
