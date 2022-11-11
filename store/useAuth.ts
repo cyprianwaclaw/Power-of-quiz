@@ -20,7 +20,7 @@ export const useAuth = defineStore('auth',{
                 console.log('Email użytkownika: ' +res.data.user.email)
                 console.log('Access token: ' +res.data.access_token)
              // await useRouter().push('/')
-               await window.location.replace("http://localhost:3000/");
+               await window.location.replace("https://power-of-quiz-dev.vercel.app/");
               
              }catch(e){
             console.log(e.response.data)
