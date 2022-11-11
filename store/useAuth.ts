@@ -7,9 +7,11 @@ export const useAuth = defineStore('auth',{
         user:[],
         access_token:[],
     }),
+
     persist: true,
+
     actions:{
-        async loginUser(email:string, password:string){
+        async LoginUser(email:string, password:string){
             try{
                 const res = await axiosInstance.post('/login',{email, password,  withCredentials: true,})
                 this.user = await res.data.user
@@ -29,8 +31,8 @@ export const useAuth = defineStore('auth',{
                 this.user = await res.data.user
                 this.access_token = await res.data.access_token
                 localStorage.setItem("access_token", res.data.access_token)
-             // await useRouter().push('/')
-               await window.location.replace("https://power-of-quiz-dev.vercel.app/");
+                await useRouter().push('/')
+              // await window.location.replace("https://power-of-quiz-dev.vercel.app/");
               
              }catch(e){
             console.log(e.response.data)

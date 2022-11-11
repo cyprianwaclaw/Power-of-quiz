@@ -52,7 +52,7 @@ const password = ref(null)
 const email = ref(null)
 
 async function Login() {
-    await authStore.loginUser(email.value, password.value); 
+    await authStore.LoginUser(email.value, password.value); 
    
 }
 
