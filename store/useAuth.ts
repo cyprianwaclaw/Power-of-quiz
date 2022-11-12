@@ -6,7 +6,7 @@ export const useAuth = defineStore('auth',{
     state: ()=>({
         user:[],
         access_token:[],
-    }),
+    }),//TODO przekierowanie po zalogowaniu 
 
     persist: true,
 
@@ -17,7 +17,7 @@ export const useAuth = defineStore('auth',{
                 this.user = await res.data.user
                 this.access_token = await res.data.access_token
                 localStorage.setItem("access_token", res.data.access_token)
-                await useRouter().push('/')
+                await useRouter().push('/panel')
               // await window.location.replace("https://power-of-quiz-dev.vercel.app/");
               
              }catch(e){
@@ -31,7 +31,7 @@ export const useAuth = defineStore('auth',{
                 this.user = await res.data.user
                 this.access_token = await res.data.access_token
                 localStorage.setItem("access_token", res.data.access_token)
-                await useRouter().push('/')
+                await useRouter().push('/panel')
               // await window.location.replace("https://power-of-quiz-dev.vercel.app/");
              }catch(e){
             console.log(e.response.data)

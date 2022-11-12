@@ -15,10 +15,9 @@
 import {user} from '@/store/example'
 import { useAuth } from '@/store/useAuth';
 
-  const postStore = user()
-  postStore.getPost()
+const postStore = user()
+postStore.getPost()
 const authStore = useAuth();
-// eretr -t62
 </script>
     
 <style scoped>

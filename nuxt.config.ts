@@ -3,19 +3,16 @@ export default defineNuxtConfig({
 
 
     transpile: ['gsap'],
-    modules: ['cookie-universal-nuxt','@nuxtjs/tailwindcss', '@nuxtjs/google-fonts', '@pinia/nuxt', 'nuxt-icon',],
+    modules: ['@nuxtjs/tailwindcss', '@nuxtjs/google-fonts', '@pinia/nuxt', 'nuxt-icon',],
     target: 'static',
     ssr: false,
     css: ['@/assets/css/tailwind.css', '@/assets/css/style.scss'],
     googleFonts: {
         download: true,
         families: {
-          'Architects Daughter': true,
           'Poppins': true,
-           Lato: [100, 300],
-           Inter: [100, 500, 700],
-           Mali: {
-            wght: [400, 600, 700],
+          'Manrope': {
+            wght: [200,300,400,500,600,700],
           },
         },
         subsets: ['latin'],
