@@ -3,7 +3,7 @@
             <div class=" md:mx-auto 2xl:px-14 lg:px-10 md:px-4 md:pt-3 md:pb- hidden md:block bac-white">
                 <div class="columns-2">
                  <div class=" flex w-full">
-                      <NuxtLink to="/panel"><img class="logo-panel pt-0.5" src="@/assets/file/logo.png"/> </NuxtLink>
+                      <NuxtLink to="/panel" scrollToTop: true><img class="logo-panel pt-0.5" src="@/assets/file/logo.png"/> </NuxtLink>
                 </div>
                 <div class="flex mt-7 justify-end gap-7 place-items-center">
                     <NuxtLink to="/panel/ustawienia"><Icon name="carbon:settings" class="icon-header cursor-pointer" size="28" ref="setupicon"/></NuxtLink>
