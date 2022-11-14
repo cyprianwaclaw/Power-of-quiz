@@ -1,5 +1,6 @@
-<template><div class="mt-50">
-    <div class="z-10 space1">
+<template><div><NuxtLayout name="default">
+<div class="mt-50">
+    <div class="z-10">
     <section class="bg-gray-50 dark:bg-gray-900">
       <div class="flex flex-col items-center justify-center px-6 py-8 md:min-h-screen  my-auto lg:py-0">
           <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
@@ -49,7 +50,8 @@
       </div>
     </section>
     </div>
-    </div></template>
+    </div>
+</NuxtLayout></div></template>
     
     <script setup lang="ts">
     import {ref, onMounted} from 'vue'
