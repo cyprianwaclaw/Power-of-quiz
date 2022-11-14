@@ -1,4 +1,4 @@
-<template><div><NuxtLayout name="default">
+<template>
 <div class="mt-50">
 <div class="z-10 space-site">
 <section class="bg-gray-50 dark:bg-gray-900">
@@ -42,7 +42,7 @@
 </section>
 </div>
 </div>
-</NuxtLayout></div></template>
+</template>
 
 <script setup lang="ts">
 import {ref, onMounted} from 'vue'
