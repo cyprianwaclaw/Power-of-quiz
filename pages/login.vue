@@ -1,4 +1,5 @@
-<template>
+<template><div>
+    <Nav />
 <div class="mt-50">
 <div class="z-10 space-site">
 <section class="bg-gray-50 dark:bg-gray-900">
@@ -40,6 +41,7 @@
       </div>
   </div>
 </section>
+</div>
 </div>
 </div>
 </template>

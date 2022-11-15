@@ -23,5 +23,11 @@ export default defineNuxtConfig({
         base64: false,
         },
 
+        sourcemap: {
+          server: false,
+          client: false,
+        },
+
+        experimental: { treeshakeClientOnly: true },
 
 })
