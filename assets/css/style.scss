@@ -1,10 +1,14 @@
 // <!-- Comment -->
-
 $text-black: #1E1919;
 $border-color: #DCDCDC;
 $font: 'Manrope', sans-serif;
 $text-gray: #bdbdbd;
+$background-page: #f8fafc;
 
+
+.content{
+    backdrop-filter: $background-page !important;
+}
 
 .icon-header{
   color: $text-gray;
@@ -71,48 +75,67 @@ $text-gray: #bdbdbd;
 
 }
 
-.logo-panel{
-  width:350px; 
-}
 .bac-white{
-  background-color: white !important;
-  border: 1px solid $border-color;
-  box-shadow: 0px -1px 11px rgba(0, 0, 0, 0.17);
+  background-color: $background-page !important;
 }
 
 .sidebarmenu{
-  width: 300px;
-  background: red;
+  display: block;
+  width: 320px;
+  background: white;
+  z-index: 999;
+  border-right-width: 2px;
+  border-right-style: solid;
+  border-right-color: $border-color !important;
+
+}
+
+.logo-panel{
+  max-width: 200px;
 }
 
 @media only screen and (min-width: 1280px) {
   .contentpage{
-    max-width: 1050px;
+    max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 0px;
+    padding-right: 0px;
+    background-color: $background-page !important;
   }
 }
 
 
-@media only screen and (min-width: 1350px) {
+@media only screen and (min-width: 1400px) {
   .contentpage{
     max-width: 1100px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 30px;
     padding-right: 30px;
+    background-color: $background-page !important;
   }
 }
 
-@media only screen and (min-width: 1415px) {
+@media only screen and (min-width: 1500px) {
   .contentpage{
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 30px;
     padding-right: 30px;
+    background-color: $background-page !important;
+  }
+}
+
+@media only screen and (min-width: 1580px) {
+  .contentpage{
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: $background-page !important;
   }
 }
 
@@ -123,5 +146,6 @@ $text-gray: #bdbdbd;
     margin-right: auto;
     padding-left: 30px;
     padding-right: 30px;
+    background-color: $background-page !important;
   }
 }
