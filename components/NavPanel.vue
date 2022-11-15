@@ -20,12 +20,3 @@
     </div>        
     </template>
     
-    <script setup lang="ts">
-    import { onMounted, ref } from 'vue';
-    import gsap from 'gsap';
-    const setupicon = ref()
-
-    </script>
-    <style lang="scss" scoped>
-
-    </style>

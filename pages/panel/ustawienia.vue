@@ -17,7 +17,3 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 </NuxtLayout></div>
 </template>
 
-
-<script lang="ts">
-scrollToTop: true
-</script>
