@@ -14,15 +14,18 @@
             <div class="min-h-screen sidebarmenu" ref="SidebarMenu">   
              <!--//TODO tutaj jest menu sidebar desktop -->
              <div class="px-8 ">
-                <div class="fixed place-items-cente flex flex-row justify-between h-20">
+                <div class="fixed place-items-cente flex flex-row justify-between h-16">
                     <NuxtLink to="/panel"><img class="logo-panel" src="@/assets/file/logo.png" /></NuxtLink>
                     <button class="" @click="CloseMenu"><Icon name="carbon:arrow-left" size="24" color="black" class="icon-header"/></button>
                 </div>
-                <div class="mt-52 fixed">
+                <div class="mt-52 fixed w-64">
                     <h1>sssssss</h1>
+                    <Accordion />
+                    dssdsd
                 </div>     
              </div>      
             </div>
+            <!--//TODO Widok strony w slote -->
             <div class="mt-2 contentpage" ref="SidebarMenu1">
                 <div class="w-full h-24 bg-black">
 
@@ -30,7 +33,7 @@
             <slot/>
         </div>
         <div class="fixed w-full">
-            <div class="columns-2 absolute w-full md:flex place-items-center h-20 px-10 bac-white">
+            <div class="columns-2 absolute w-full md:flex place-items-center h-16 px-10 bac-white">
 
                 <div class="flex gap-3 flex-row justify-end w-full place-items-center">
                     <div class="flex gap-3 flex-row justify-end w-full  place-items-center">

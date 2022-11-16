@@ -25,6 +25,7 @@
     "pinia-plugin-persistedstate": "^2.3.0",
     "sass": "^1.56.0",
     "vee-validate": "^4.7.2",
+    "vue3-rich-accordion": "^0.0.7",
     "yup": "^0.32.11"
   }
 }
