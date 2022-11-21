@@ -1,8 +1,8 @@
 <template>
-<div>
+<div @click="show = !show">
  <div>
-    <button @click="show = !show">Toggle
-    <Icon name="carbon:chevron-down" size="24" class="ml-10"/>
+    <button class="cursor-pointer ">
+      <span class="flex flex-row"><Icon name="carbon:home" size="25" class="mr-2" color="gray-100"/><h3 class="menutext">Moje konto</h3>  <Icon name="carbon:chevron-down" size="24" class="openmenu"/></span>
     </button>
  </div>
   <Transition name="smooth">
@@ -31,19 +31,16 @@ p{
   max-height: 20px;
 }
 .smooth-enter-active, .smooth-leave-active {
-  transition: max-height .5s;
+  transition: max-height .6s;
 }
 .smooth-enter, .smooth-leave-to {
   max-height: 0;
 }
 .smooth-enter-active, .smooth-leave-active {
-  transition: opacity .5s;
+  transition: opacity .6s;
 }
 .smooth-enter, .smooth-leave-to {
   opacity: 0
 }
-
-
-
 
 </style>

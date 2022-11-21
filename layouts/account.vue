@@ -11,45 +11,35 @@
         </div>
         </div>
         <div class="columns-2 w-full mx-auto flex ">
-            <div class="min-h-screen sidebarmenu" ref="SidebarMenu">   
+            <div class="min-h-screen sidebarmenu px-4 pt-5" ref="SidebarMenu">   
              <!--//TODO tutaj jest menu sidebar desktop -->
-             <div class="px-8 ">
-                <div class="fixed place-items-cente flex flex-row justify-between h-16">
-                    <NuxtLink to="/panel"><img class="logo-panel" src="@/assets/file/logo.png" /></NuxtLink>
-                    <button class="" @click="CloseMenu"><Icon name="carbon:arrow-left" size="24" color="black" class="icon-header"/></button>
+                <div class="columns-2 fixed place-items-center">
+                   <div><NuxtLink to="/panel"><img class="logo-panel" src="@/assets/file/logo.png" /></NuxtLink></div>
+                   <button class="justify-end w-full click" @click="CloseMenu" ref="openicon"><Icon name="carbon:chevron-left" size="24" color="gray-500" class="icon-header justify-end w-full"/></button>
                 </div>
-                <div class="mt-52 fixed w-64">
-                    <h1>sssssss</h1>
-                    <Accordion />
-                    dssdsd
-                </div>     
-             </div>      
+                <div class="mt-28 fixed w-64 px-4 click">
+                    <NuxtLink to="/panel"><button class="flex flex-row cursor-pointer"><Icon name="carbon:home" size="25" class="menutexticon"/><h3 class="menutext">Strona główna</h3></button></NuxtLink>
+                    <NuxtLink to="/panel"><button class="flex flex-row cursor-pointer"><Icon name="carbon:home" size="25" class="menutexticon"/><h3 class="menutext">Quizy</h3></button></NuxtLink>
+                    <NuxtLink to="/panel"><button class="flex flex-row cursor-pointer"><Icon name="carbon:home" size="25" class="menutexticon"/><h3 class="menutext">Znajomi</h3></button></NuxtLink>
+                    <AccordionTest />
+                    <div>
+                         <NuxtLink to="/panel/ustawienia"><button class="flex flex-row cursor-pointer"><Icon name="carbon:home" size="25" class="menutexticon"/><h3 class="menutext">Ustawienia</h3></button></NuxtLink>
+                         <NuxtLink to="/panel"><button class="flex flex-row cursor-pointer"><Icon name="carbon:home" size="25" class="menutexticon"/><h3 class="menutext">Wyloguj się</h3></button></NuxtLink>
+                    </div>
+                </div>         
             </div>
             <!--//TODO Widok strony w slote -->
-            <div class="mt-2 contentpage" ref="SidebarMenu1">
-                <div class="w-full h-24 bg-black">
-
-                </div>
+            <div class="mt-32 contentpage" ref="SidebarMenu1">
             <slot/>
         </div>
         <div class="fixed w-full">
-            <div class="columns-2 absolute w-full md:flex place-items-center h-16 px-10 bac-white">
+            <div class="columns-2 absolute w-full md:flex place-items-center h-20 px-10 bac-white">
 
                 <div class="flex gap-3 flex-row justify-end w-full place-items-center">
                     <div class="flex gap-3 flex-row justify-end w-full  place-items-center">
 
-                        <form>
-    <div class="flex">
-        <div class="relative w-full">
-            <input type="search" id="search-dropdown" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-lg border-gray-50 border-l-2 border focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" placeholder="Search Mockups, Logos, Design Templates..." required>
-            <button type="submit" class="absolute top-0 right-0 p-2.5 text-sm font-medium text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                <span class="sr-only">Search</span>
-            </button>
-        </div>
-    </div>
-</form>
-                        <NuxtLink to="/panel/ustawienia"><Icon name="carbon:settings" class="icon-header cursor-pointer mr-3" size="28" ref="setupicon"/></NuxtLink>
+
+                        <input class="rounded-xl border-gray-300 border-2 h-10 width1 mr-10 px-3 py-5" placeholder="Znajdź quiz"/>
                         <img class="rounded-full w-10 h-10" src="@/assets/file/profil.jpg"/>
                             <div class="flex flex-col">
                                 <h2 class="name-header mt-0.5">Cyprian Wacław</h2>
@@ -74,6 +64,7 @@
     const m_screen_menu = ref();
     const SidebarMenu = ref()
     const SidebarMenu1 = ref()
+    const openicon = ref()
     const m_menu_button_close = ref();
     const m_menu_button_open = ref();
     const m_page1 = ref();
@@ -135,10 +126,14 @@
                                  })
 
                  sidebar.to(SidebarMenu.value,{
-                    x:-200,
+                    x:-220,
+                 })
+                 .to(openicon.value,{
+                    rotate: 180,
+                    duration: 0.5,
                  })
                 .to(SidebarMenu1.value,{
-                    x:-100,
+                    x:-120,
                  })   
 
                 
@@ -165,5 +160,8 @@
     </script>
     
     <style scoped lang="scss">
-
+.width1{
+    width: 400px !important;
+    height: 20px !important;
+}
     </style>

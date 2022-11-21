@@ -1,11 +1,28 @@
 // <!-- Comment -->
+$text-menu: #797979;
 $text-black: #1E1919;
 $border-color: #DCDCDC;
-$font: 'Manrope', sans-serif;
+$family: 'Manrope', sans-serif;
+$family-sans: 'Manrope', sans-serif;
 $text-gray: #bdbdbd;
 $background-page: #f8fafc;
 
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap');
 
+.click{
+  -webkit-tap-highlight-color:transparent;
+  border-radius: 999px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.fontone{
+  font-family: $family-sans;
+  font-weight: 00;
+}
 .content{
     backdrop-filter: $background-page !important;
 }
@@ -17,7 +34,6 @@ $background-page: #f8fafc;
 .icon-header:hover{
   color: $text-black;
   transition-duration: 0.7s;
-  transform: rotate(90deg);
  //  margin-top: 5px;
 }
 .icon-header:not(:hover){
@@ -29,14 +45,14 @@ $background-page: #f8fafc;
 .des-header{
  color: $text-gray;
  font-size: 14px;
- font-family: $font;
+ font-family: $family;
 }
 
 .name-header{
   font-weight: 300;
   color: $text-black;
   font-size: 15px;
-  font-family:$font;
+  font-family:$family;
  }
 
 .primary-button{
@@ -50,7 +66,7 @@ $background-page: #f8fafc;
 }
 .text-black1{
     color: $text-black;
-    font-family: $font;
+    font-family: $family;
 }
 
 .navtext{
@@ -91,7 +107,7 @@ $background-page: #f8fafc;
 }
 
 .logo-panel{
-  max-width: 200px;
+  max-width: 170px;
 }
 
 @media only screen and (min-width: 1280px) {
@@ -147,5 +163,93 @@ $background-page: #f8fafc;
     padding-left: 30px;
     padding-right: 30px;
     background-color: $background-page !important;
+  }
+}
+
+.menutext{
+  font-family: $family-sans;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 0px 15px 22px 0px;
+  color: $text-menu
+}
+
+.menutexticon{
+  color: $text-menu;
+  margin-right: 10px;
+}
+
+.openmenu{
+  color: $text-gray;
+}
+
+
+
+
+
+
+$midnight: #2c3e50;
+$clouds: #ecf0f1;
+// General
+
+// Layout
+.row {
+  display:flex;
+  .col {
+    flex:1;
+  }
+}
+/* Accordion styles */
+.tabs {
+  overflow: hidden;
+}
+.tab {
+  width: 100%;
+  color: white;
+  overflow: hidden;
+  &-label {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    cursor: pointer;
+    
+    /* Icon */
+    &::after {
+     // content: "\276F";
+      content: 'gfgfgfg';
+      width: 1em;
+      height: 1em;
+      color:#1E1919;
+      text-align: center;
+      transition: all .20s;
+    }
+  }
+  &-content {
+    max-height: 0;
+    padding: 0 1em;
+    // color tekstu, rzeczy po otwarciu //
+    color: $midnight;
+    transition: all .20s;
+  }
+  &-close {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1em;
+    font-size: 0.75em;
+    cursor: pointer;
+  }
+}
+
+// :checked
+input:checked {
+  + .tab-label {
+    &::after {
+      transform: rotate(90deg);
+    }
+  }
+  ~ .tab-content {
+    max-height: 100vh;
+    margin-top: -5px;
+    margin-bottom: 22px;
   }
 }

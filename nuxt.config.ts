@@ -14,6 +14,9 @@ export default defineNuxtConfig({
           'Manrope': {
             wght: [200,300,400,500,600,700],
           },
+          'Open Sans':{
+            wght: [200,300,400,500,600,700],
+          },
         },
         subsets: ['latin'],
         display: 'swap',
