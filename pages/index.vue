@@ -18,6 +18,8 @@ import { useAuth } from '@/store/useAuth';
 const postStore = user()
 postStore.getPost()
 const authStore = useAuth();
+
+console.log(authStore)
 </script>
     
 <style scoped>

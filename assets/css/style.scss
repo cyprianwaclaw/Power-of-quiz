@@ -170,7 +170,7 @@ $background-page: #f8fafc;
   font-family: $family-sans;
   font-weight: 500;
   font-size: 16px;
-  padding: 0px 15px 22px 0px;
+  padding: 0px 18px 28px 0px;
   color: $text-menu
 }
 
@@ -188,8 +188,7 @@ $background-page: #f8fafc;
 
 
 
-$midnight: #2c3e50;
-$clouds: #ecf0f1;
+
 // General
 
 // Layout
@@ -204,7 +203,7 @@ $clouds: #ecf0f1;
   overflow: hidden;
 }
 .tab {
-  width: 100%;
+  width: 70%;
   color: white;
   overflow: hidden;
   &-label {
@@ -216,9 +215,10 @@ $clouds: #ecf0f1;
     /* Icon */
     &::after {
      // content: "\276F";
-      content: 'gfgfgfg';
-      width: 1em;
-      height: 1em;
+      content: url('https://api.iconify.design/carbon/chevron-down.svg');
+      width: 17px;
+      height: 17px;
+      margin-top: 3px;
       color:#1E1919;
       text-align: center;
       transition: all .20s;
@@ -228,7 +228,7 @@ $clouds: #ecf0f1;
     max-height: 0;
     padding: 0 1em;
     // color tekstu, rzeczy po otwarciu //
-    color: $midnight;
+    color: $text-menu;
     transition: all .20s;
   }
   &-close {
@@ -244,7 +244,8 @@ $clouds: #ecf0f1;
 input:checked {
   + .tab-label {
     &::after {
-      transform: rotate(90deg);
+      transform: rotate(180deg);
+      margin-top: 5.5px;
     }
   }
   ~ .tab-content {

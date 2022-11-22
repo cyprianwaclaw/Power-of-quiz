@@ -30,6 +30,7 @@
             </div>
             <!--//TODO Widok strony w slote -->
             <div class="mt-32 contentpage" ref="SidebarMenu1">
+                user: {{useUser.user.user.name}}
             <slot/>
         </div>
         <div class="fixed w-full">
@@ -56,6 +57,12 @@
     <script setup lang="ts">
     import {ref, onMounted} from 'vue';
     import gsap from 'gsap';
+    import {userObject} from '@/store/userObject'
+
+
+    const useUser = userObject()
+    console.log(useUser)
+
 
     gsap.config({
         nullTargetWarn: false,
