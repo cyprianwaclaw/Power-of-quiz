@@ -88,7 +88,7 @@
     })
 
 
-    const show = ref(false)
+    const show = ref(true)
 
     const m_screen_menu = ref();
     const SidebarMenu = ref()
