@@ -51,7 +51,9 @@
 
 </div>
 <h1>{{show}}</h1>
-<p>{{useUser.user.name}}</p>
+<div>
+    <p>{{useUser.name}}</p>
+</div>
             <slot/>
         </div>
         <div class="fixed w-full">
