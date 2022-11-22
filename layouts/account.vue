@@ -52,7 +52,7 @@
 </div>
 <h1>{{show}}</h1>
 <div>
-    <p>{{useUser.name[0]}}</p>
+    <p>{{useUser.name}}</p>
 </div>
             <slot/>
         </div>
