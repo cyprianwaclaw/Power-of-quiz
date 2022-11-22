@@ -53,6 +53,7 @@
 <h1>{{show}}</h1>
 <div>
     <p>{{useUser.name}}</p>
+   test: {{authStore.user.name}}
 </div>
             <slot/>
         </div>
@@ -82,6 +83,10 @@
     import gsap from 'gsap';
     import {userObject} from '@/store/userObject'
 
+    import { useAuth } from '@/store/useAuth';
+
+
+const authStore = useAuth();
 
     const useUser = userObject()
     useUser.getUser()
