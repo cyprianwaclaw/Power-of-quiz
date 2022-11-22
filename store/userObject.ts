@@ -8,9 +8,8 @@ export const userObject = defineStore('user',{
         name:[],
         loading: false,
     }),
-    actions:{},
-    getters:{
-        async getUserName(){
+    actions:{
+        async getUser(){
             const res = await  axiosInstance.get('/users/current',{
             })
             try{
