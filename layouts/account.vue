@@ -30,6 +30,7 @@
             </div>
             <!--//TODO Widok strony w slote -->
             <div class="mt-32 contentpage" ref="SidebarMenu1">
+                {{authStore.user.name}}
                 <div @click="show = !show">
  <div>
     <button class="cursor-pointer ">
@@ -77,6 +78,14 @@
     import {ref, onMounted} from 'vue';
     import gsap from 'gsap';
     import {userObject} from '@/store/userObject'
+
+
+    import {user} from '@/store/example'
+import { useAuth } from '@/store/useAuth';
+
+const postStore = user()
+postStore.getPost()
+const authStore = useAuth();
 
 
     const useUser = userObject()

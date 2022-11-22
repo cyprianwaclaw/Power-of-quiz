@@ -7,6 +7,7 @@ export type Post = {
 
 
 export type User = { 
+        "user": string[],
         "id": number,
         "name": string | null,
         "surname": string | null,
