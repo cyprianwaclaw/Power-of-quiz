@@ -30,7 +30,7 @@
             </div>
             <!--//TODO Widok strony w slote -->
             <div class="mt-32 contentpage" ref="SidebarMenu1">
-                {{authStore.user.name}}
+                
                 <div @click="show = !show">
  <div>
     <button class="cursor-pointer ">
@@ -51,6 +51,7 @@
 
 </div>
 <h1>{{show}}</h1>
+<p>{{useUser.user.name}}</p>
             <slot/>
         </div>
         <div class="fixed w-full">
@@ -63,7 +64,7 @@
                         <input class="rounded-xl border-gray-300 border-2 h-10 width1 mr-10 px-3 py-5" placeholder="Znajdź quiz"/>
                         <img class="rounded-full w-10 h-10" src="@/assets/file/profil.jpg"/>
                             <div class="flex flex-col">
-                                <h2 class="name-header mt-0.5">{{useUser.user.name}} {{useUser.user.surname}}</h2>
+                                <h2 class="name-header mt-0.5">{{useUser.user}} {{useUser.user}}</h2>
                                 <p class="des-header -mt-1">Standard</p>
                             </div>
                   </div>
@@ -78,14 +79,6 @@
     import {ref, onMounted} from 'vue';
     import gsap from 'gsap';
     import {userObject} from '@/store/userObject'
-
-
-    import {user} from '@/store/example'
-import { useAuth } from '@/store/useAuth';
-
-const postStore = user()
-postStore.getPost()
-const authStore = useAuth();
 
 
     const useUser = userObject()
