@@ -85,7 +85,6 @@
 
     const useUser = userObject()
     useUser.getUser()
-    console.log(useUser.name)
 
 
     gsap.config({
