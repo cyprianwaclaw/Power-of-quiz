@@ -89,7 +89,6 @@
 const authStore = useAuth();
 
     const useUser = userObject()
-    useUser.getUser()
 
 
     gsap.config({
