@@ -11,26 +11,45 @@
         </div>
         </div>
         <div class="columns-2 w-full mx-auto flex ">
-            <div class="min-h-screen sidebarmenu px-4 pt-5" ref="SidebarMenu">   
+            <div v-if="show" class="min-h-screen sidebarmenu px-4 pt-5" ref="SidebarMenu">   
              <!--//TODO tutaj jest menu sidebar desktop -->
                 <div class="columns-2 fixed place-items-center">
                    <div><NuxtLink to="/panel"><img class="logo-panel" src="@/assets/file/logo.png" /></NuxtLink></div>
-                   <button class="justify-end w-full click" @click="CloseMenu" ref="openicon"><Icon name="carbon:chevron-left" size="24" color="gray-500" class="icon-header justify-end w-full"/></button>
+                   <button class="justify-end w-full click" @click="show = !show" ref="openicon"><Icon name="carbon:chevron-left" size="24" color="gray-500" class="icon-header justify-end w-full"/></button>
                 </div>
                 <div class="mt-28 fixed w-64 px-4 click">
                     <NuxtLink to="/panel"><button class="flex flex-row cursor-pointer"><Icon name="carbon:home" size="25" class="menutexticon"/><h3 class="menutext">Strona główna</h3></button></NuxtLink>
-                    <NuxtLink to="/panel"><button class="flex flex-row cursor-pointer"><Icon name="carbon:home" size="25" class="menutexticon"/><h3 class="menutext">Quizy</h3></button></NuxtLink>
-                    <NuxtLink to="/panel"><button class="flex flex-row cursor-pointer"><Icon name="carbon:home" size="25" class="menutexticon"/><h3 class="menutext">Znajomi</h3></button></NuxtLink>
+                    <NuxtLink to="/panel"><button class="flex flex-row cursor-pointer"><Icon name="carbon:gamification" size="25" class="menutexticon"/><h3 class="menutext">Quizy</h3></button></NuxtLink>
+                    <NuxtLink to="/panel"><button class="flex flex-row cursor-pointer"><Icon name="carbon:events" size="25" class="menutexticon"/><h3 class="menutext">Znajomi</h3></button></NuxtLink>
                     <AccordionTest />
-                    <div>
-                         <NuxtLink to="/panel/ustawienia"><button class="flex flex-row cursor-pointer"><Icon name="carbon:home" size="25" class="menutexticon"/><h3 class="menutext">Ustawienia</h3></button></NuxtLink>
-                         <NuxtLink to="/panel"><button class="flex flex-row cursor-pointer"><Icon name="carbon:home" size="25" class="menutexticon"/><h3 class="menutext">Wyloguj się</h3></button></NuxtLink>
+                    <div class=" ">
+                         <NuxtLink to="/panel/ustawienia"><button class="flex flex-row cursor-pointer"><Icon name="carbon:settings" size="25" class="menutexticon"/><h3 class="menutext">Ustawienia</h3></button></NuxtLink>
+                         <NuxtLink to="/panel"><button class="flex flex-row cursor-pointer"><Icon name="carbon:logout" size="25" class="menutexticon"/><h3 class="menutext">Wyloguj się</h3></button></NuxtLink>
                     </div>
                 </div>         
             </div>
             <!--//TODO Widok strony w slote -->
             <div class="mt-32 contentpage" ref="SidebarMenu1">
-                user: {{useUser.user.user.name}}
+                <div @click="show = !show">
+ <div>
+    <button class="cursor-pointer ">
+      <span class="flex flex-row"><Icon name="carbon:home" size="25" class="mr-2" color="gray-100"/><h3 class="menutext">Moje konto</h3>  <Icon name="carbon:chevron-down" size="24" class="openmenu"/></span>
+    </button>
+ </div>
+  <Transition name="smooth">
+    <div v-if="show" class="placeholder:">
+      <div class="flex flex-col culumns-5">
+   		<div><p>hello</p></div>
+       <div><p>hello</p></div>
+       <div><p>hello</p>
+       </div><div><p>hello</p>
+       </div><div><p>hello</p></div>
+      </div>
+    </div>
+  </Transition>
+
+</div>
+<h1>{{show}}</h1>
             <slot/>
         </div>
         <div class="fixed w-full">
@@ -43,7 +62,7 @@
                         <input class="rounded-xl border-gray-300 border-2 h-10 width1 mr-10 px-3 py-5" placeholder="Znajdź quiz"/>
                         <img class="rounded-full w-10 h-10" src="@/assets/file/profil.jpg"/>
                             <div class="flex flex-col">
-                                <h2 class="name-header mt-0.5">Cyprian Wacław</h2>
+                                <h2 class="name-header mt-0.5">{{useUser.user.name}} {{useUser.user.surname}}</h2>
                                 <p class="des-header -mt-1">Standard</p>
                             </div>
                   </div>
@@ -67,6 +86,9 @@
     gsap.config({
         nullTargetWarn: false,
     })
+
+
+    const show = ref(false)
 
     const m_screen_menu = ref();
     const SidebarMenu = ref()
@@ -170,5 +192,20 @@
 .width1{
     width: 400px !important;
     height: 20px !important;
+}
+
+
+
+.smooth-enter-active, .smooth-leave-active {
+  transition: max-height .6s;
+}
+.smooth-enter, .smooth-leave-to {
+  max-height: 0;
+}
+.smooth-enter-active, .smooth-leave-active {
+  transition: opacity .6s;
+}
+.smooth-enter, .smooth-leave-to {
+  opacity: 0
 }
     </style>
