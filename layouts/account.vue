@@ -82,10 +82,6 @@
     import gsap from 'gsap';
     import {userObject} from '@/store/userObject'
 
-    import { useAuth } from '@/store/useAuth';
-
-
-const authStore = useAuth();
 
     const useUser = userObject()
     useUser.getUser()
