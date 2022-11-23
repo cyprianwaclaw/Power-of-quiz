@@ -12,7 +12,7 @@ export const userObject = defineStore('user',{
             try{
                 this.loading = true
                 const res = await  axiosInstance.get('/users/current')
-                this.user = await res.data
+                this.user = await res.data.user
                 this.loading = false
              }catch(e){
             console.log(e.response.data)
