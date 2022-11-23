@@ -5,16 +5,14 @@ import {User} from '@/api/types'
 export const userObject = defineStore('user',{
     state:()=>({
         user: [],
-        name:[],
         loading: false,
     }),
     actions:{
         async getUser(){
-            const res = await  axiosInstance.get('/users/current',{
-            })
             try{
                 this.loading = true
-                this.name = await res.data.user.name
+                const res = await  axiosInstance.get('/users/current')
+                this.user = await res.data
                 this.loading = false
              }catch(e){
             console.log(e.response.data)

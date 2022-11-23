@@ -52,8 +52,7 @@
 </div>
 <h1>{{show}}</h1>
 <div>
-    <p>{{useUser.name}}</p>
-   test: {{authStore.user.name}}
+    <p>Imię: {{useUser.user}}</p>
 </div>
             <slot/>
         </div>
@@ -89,7 +88,7 @@
 const authStore = useAuth();
 
     const useUser = userObject()
-
+    useUser.getUser()
 
     gsap.config({
         nullTargetWarn: false,
