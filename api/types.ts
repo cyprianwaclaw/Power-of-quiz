@@ -7,8 +7,11 @@ export type Post = {
 
 
 export type User = { 
-        "user": string[],
-        "id": number,
+        user:string []
+
+}
+/**
+ * "id": number,
         "name": string | null,
         "surname": string | null,
         "phone": number | null,
@@ -19,4 +22,5 @@ export type User = {
         "avatar_path": string | null,
         "created_at": string | null,
         "updated_at": string | null,
-}
+ * 
+ */
