@@ -84,7 +84,6 @@
 
 
     const useUser = userObject()
-    useUser.getUser()
 
     gsap.config({
         nullTargetWarn: false,
