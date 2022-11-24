@@ -66,7 +66,7 @@
                         <input class="rounded-xl border-gray-300 border-2 h-10 width1 mr-10 px-3 py-5" placeholder="Znajdź quiz"/>
                         <img class="rounded-full w-10 h-10" src="@/assets/file/profil.jpg"/>
                             <div class="flex flex-col">
-                                <h2 class="name-header mt-0.5">{{userlogin.user.name}}</h2>
+                                <h2 class="name-header mt-0.5">{{userlogin1.user.name}}</h2>
                                 <p class="des-header -mt-1">Standard</p>
                             </div>
                   </div>
@@ -83,8 +83,8 @@
     import {useUser} from '@/store/useUser'
 
 
-    const userlogin = useUser()
-    userlogin.getUser()
+    const userlogin1 = useUser()
+    userlogin1.getUser()
 
     console.log(useUser)
     gsap.config({
