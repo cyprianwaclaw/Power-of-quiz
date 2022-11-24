@@ -2,6 +2,14 @@ import {defineStore} from 'pinia'
 import {axiosInstance} from '@/axios.config'
 import {User} from '@/api/types'
 
+interface UserProperties {
+    user: string;
+    plan: boolean; 
+    loading: boolean;
+}
+type plan ={
+    plan: boolean
+}
 export const useUser = defineStore('userlogin',{
     state:()=>({
         user: [],
@@ -23,7 +31,7 @@ export const useUser = defineStore('userlogin',{
           async getUserPlan(){
             try{
                 this.loading = true
-                const res = await  axiosInstance.get('/user/getPlan')
+                const res = await  axiosInstance.get<plan>('/user/getPlan')
                 this.plan = await res.data
                 this.loading = false
              }catch(e){

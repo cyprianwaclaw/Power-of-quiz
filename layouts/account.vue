@@ -51,6 +51,7 @@
 
 </div>
 <h1>{{show}}</h1>
+{{user.plan}}
 <div>
     <p></p>
 </div>
@@ -67,7 +68,13 @@
                         <img class="rounded-full w-10 h-10" src="@/assets/file/profil.jpg"/>
                             <div class="flex flex-col">
                                 <h2 class="name-header mt-0.5">{{user.user.name}} {{user.user.surname}}</h2>
-                                <p class="des-header -mt-1">{{user.plan}}</p>
+                                <!--//TODO Sprawdzić na końcu czy zgadzają się wszystkie plany -->
+                                <p class="des-header -mt-1" v-if="user.plan == false">
+                                  Standard
+                                  </p>
+                                  <p class="des-header -mt-1" v-else>
+                                  Premium
+                                  </p>
                             </div>
                   </div>
                 </div>
