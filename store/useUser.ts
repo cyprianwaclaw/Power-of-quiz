@@ -2,7 +2,7 @@ import {defineStore} from 'pinia'
 import {axiosInstance} from '@/axios.config'
 import {User} from '@/api/types'
 
-export const userObject = defineStore('userObject',{
+export const useUser = defineStore('userlogin',{
     state:()=>({
         user: [],
         loading: false,
