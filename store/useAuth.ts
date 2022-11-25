@@ -9,7 +9,9 @@ export const useAuth = defineStore('auth',{
     }),//TODO przekierowanie po zalogowaniu 
 
     persist: true,
+    getters:{
 
+            },
     actions:{
         async LoginUser(email:string, password:string){
             try{
@@ -37,6 +39,13 @@ export const useAuth = defineStore('auth',{
             console.log(e.response.data)
              }
           },
+
+          logout() {
+            this.user = null;
+            this.access_token = null;
+            localStorage.removeItem('access_token');
+            useRouter().push('/login');
+        }
 
     }
 

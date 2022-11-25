@@ -11,50 +11,29 @@
         </div>
         </div>
         <div class="columns-2 w-full mx-auto flex ">
-            <div v-if="show" class="min-h-screen sidebarmenu px-4 pt-5" ref="SidebarMenu">   
+            <div v-if="show" class="min-h-screen sidebarmenu px-8 py-8 relative" ref="SidebarMenu">   
              <!--//TODO tutaj jest menu sidebar desktop -->
-                <div class="columns-2 fixed place-items-center">
-                   <div><NuxtLink to="/panel"><img class="logo-panel" src="@/assets/file/logo.png" /></NuxtLink></div>
-                   <button class="justify-end w-full click" @click="show = !show" ref="openicon"><Icon name="carbon:chevron-left" size="24" color="gray-500" class="icon-header justify-end w-full"/></button>
+                <div class="columns-2 w-64 flex place-items-center justify-between fixed">
+                   <NuxtLink to="/panel"><img class="logo-panel" src="@/assets/file/logo.png" /></NuxtLink>
+                   <!--//TODO Zamykanie menu sidebar -->
+                   <button class="justify-end click" @click="show = !show" ref="openicon"><Icon name="carbon:chevron-left" size="24" color="gray-500" class="icon-header justify-end w-full"/></button>
                 </div>
-                <div class="mt-28 fixed w-64 px-4 click">
-                    <NuxtLink to="/panel"><button class="flex flex-row cursor-pointer"><Icon name="carbon:home" size="25" class="menutexticon"/><h3 class="menutext">Strona główna</h3></button></NuxtLink>
-                    <NuxtLink to="/panel"><button class="flex flex-row cursor-pointer"><Icon name="carbon:gamification" size="25" class="menutexticon"/><h3 class="menutext">Quizy</h3></button></NuxtLink>
-                    <NuxtLink to="/panel"><button class="flex flex-row cursor-pointer"><Icon name="carbon:events" size="25" class="menutexticon"/><h3 class="menutext">Znajomi</h3></button></NuxtLink>
+                <div class="mt-28 fixed w-64 click">
+                    <NuxtLink to="/panel"><button class="flex flex-row cursor-pointer"><Icon name="carbon:home" size="24" class="menutexticon"/><h3 class="menutext">Strona główna</h3></button></NuxtLink>
+                    <NuxtLink to="/panel"><button class="flex flex-row cursor-pointer"><Icon name="carbon:gamification" size="24" class="menutexticon"/><h3 class="menutext">Quizy</h3></button></NuxtLink>
+                    <NuxtLink to="/panel"><button class="flex flex-row cursor-pointer"><Icon name="carbon:events" size="24" class="menutexticon"/><h3 class="menutext">Znajomi</h3></button></NuxtLink>
                     <AccordionTest />
-                    <div class=" ">
-                         <NuxtLink to="/panel/ustawienia"><button class="flex flex-row cursor-pointer"><Icon name="carbon:settings" size="25" class="menutexticon"/><h3 class="menutext">Ustawienia</h3></button></NuxtLink>
-                         <NuxtLink to="/panel"><button class="flex flex-row cursor-pointer"><Icon name="carbon:logout" size="25" class="menutexticon"/><h3 class="menutext">Wyloguj się</h3></button></NuxtLink>
-                    </div>
-                </div>         
+                    <NuxtLink to="/panel/ustawienia"><button class="flex flex-row cursor-pointer"><Icon name="carbon:settings" size="24" class="menutexticon"/><h3 class="menutext">Ustawienia</h3></button></NuxtLink>
+                </div>  
+                <div class="">
+                  <div class="fixed bottom-0 mb-5">             
+                    <button @click="auth.logout()" class="flex flex-row cursor-pointer"><Icon name="carbon:logout" size="20" class="menutexticonlog text-gray-400"/><h3 class="text-sm text-gray-400">Wyloguj się</h3></button>
+                  </div>  
+                </div>       
             </div>
             <!--//TODO Widok strony w slote -->
             <div class="mt-32 contentpage" ref="SidebarMenu1">
                 
-                <div @click="show = !show">
- <div>
-    <button class="cursor-pointer ">
-      <span class="flex flex-row"><Icon name="carbon:home" size="25" class="mr-2" color="gray-100"/><h3 class="menutext">Moje konto</h3>  <Icon name="carbon:chevron-down" size="24" class="openmenu"/></span>
-    </button>
- </div>
-  <Transition name="smooth">
-    <div v-if="show" class="placeholder:">
-      <div class="flex flex-col culumns-5">
-   		<div><p>hello</p></div>
-       <div><p>hello</p></div>
-       <div><p>hello</p>
-       </div><div><p>hello</p>
-       </div><div><p>hello</p></div>
-      </div>
-    </div>
-  </Transition>
-
-</div>
-<h1>{{show}}</h1>
-{{user.plan}}
-<div>
-    <p></p>
-</div>
             <slot/>
         </div>
         <div class="fixed w-full">
@@ -88,7 +67,9 @@
     import {ref, onMounted} from 'vue';
     import gsap from 'gsap';
     import {useUser} from '@/store/useUser'
+    import {useAuth} from '@/store/useAuth'
 
+    const auth = useAuth();
 
     const user = useUser()
     user.getUser()
