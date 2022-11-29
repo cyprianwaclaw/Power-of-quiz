@@ -5,7 +5,8 @@ import {axiosInstance} from '@/axios.config'
 export const Quiz = defineStore('quiz',{
 
     state:()=>({
-        fastTwo:[]
+        fastTwo:[],
+        allQuiz:[],
     }),
     getters:{
 
@@ -16,6 +17,15 @@ export const Quiz = defineStore('quiz',{
             })
             try{
                 this.fastTwo = await res
+            } catch (e){
+                console.error(e)
+            }
+        },
+        async getAllQuiz(){
+            const res = await  axiosInstance.get('/quizzes',{
+            })
+            try{
+                this.allQuiz = await res.data.data
             } catch (e){
                 console.error(e)
             }
