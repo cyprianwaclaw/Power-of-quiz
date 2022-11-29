@@ -5,7 +5,8 @@ import {User} from '@/api/types'
 export const useUser = defineStore('userlogin',{
     state:()=>({
         user: [],
-        plan: [],
+        point: [],
+        invited:[],
         loading: false,
     }),
     actions:{
@@ -25,6 +26,17 @@ export const useUser = defineStore('userlogin',{
                 this.loading = true
                 const res = await  axiosInstance.get('/user/getPlan')
                 this.plan = await res.data
+                this.loading = false
+             }catch(e){
+            console.log(e.response.data)
+             }
+          },
+
+          async getInvited(){
+            try{
+                this.loading = true
+                const res = await  axiosInstance.get('/user/getInvitedUsers')
+                this.invited = await res.data
                 this.loading = false
              }catch(e){
             console.log(e.response.data)

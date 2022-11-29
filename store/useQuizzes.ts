@@ -1,21 +1,21 @@
 import {defineStore} from 'pinia'
-import {Post} from '@/api/types'
+import {FastTwo} from '@/api/types'
 import {axiosInstance} from '@/axios.config'
 
-export const user = defineStore('user',{
+export const Quiz = defineStore('quiz',{
 
     state:()=>({
-        posts:[]
+        fastTwo:[]
     }),
     getters:{
 
     },
     actions:{
-        async getPost(){
-            const res = await  axiosInstance.get<Post[]>('/quizzes/fast-two',{
+        async getFastTwo(){
+            const res = await  axiosInstance.get<FastTwo[]>('/quizzes/fast-two',{
             })
             try{
-                this.posts = await res
+                this.fastTwo = await res
             } catch (e){
                 console.error(e)
             }

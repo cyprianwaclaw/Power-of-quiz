@@ -3,14 +3,22 @@ $text-menu: #333333;
 $text-black: #1E1919;
 $border-color: #DCDCDC;
 $family: 'Manrope', sans-serif;
-$family-sans: 'Manrope', sans-serif;
 $text-gray: #bdbdbd;
-$background-page: #f8fafc;
+$background-page: #ebf0f5;
+$color-difficult: red;
+$color-time: purple;
+$color-answer: yellow;
+$text-option: gray;
+$color-time-bg: rgb(235, 193, 235);
+$color-answer-bg: rgb(239, 239, 188);
+$text-option-bg: rgb(228, 171, 171);
+$green: #33B970;
+$red: #FF7171;
 
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap');
 
-.click{
-  -webkit-tap-highlight-color:transparent;
+.click {
+  -webkit-tap-highlight-color: transparent;
   border-radius: 999px;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -19,69 +27,73 @@ $background-page: #f8fafc;
   -ms-user-select: none;
   user-select: none;
 }
-.fontone{
-  font-family: $family-sans;
-  font-weight: 00;
-}
-.content{
-    backdrop-filter: $background-page !important;
+
+
+.content {
+  background-color: $background-page !important;
 }
 
-.icon-header{
+.icon-header {
   color: $text-gray;
- //  margin-top: 5px;
+  //  margin-top: 5px;
 }
-.icon-header:hover{
+
+.icon-header:hover {
   color: $text-black;
   transition-duration: 0.7s;
- //  margin-top: 5px;
+  //  margin-top: 5px;
 }
-.icon-header:not(:hover){
+
+.icon-header:not(:hover) {
   color: $text-gray;
   transition-duration: 0.7s;
 
- //  margin-top: 5px;
-}
-.des-header{
- color: $text-gray;
- font-size: 14px;
- font-family: $family;
+  //  margin-top: 5px;
 }
 
-.name-header{
+.des-header {
+  color: $text-gray;
+  font-size: 14px;
+  font-family: $family;
+}
+
+.name-header {
   font-weight: 300;
   color: $text-black;
   font-size: 15px;
-  font-family:$family;
- }
-
-.primary-button{
-    padding-left: 25px;
-    padding-right: 25px;
-    padding-top:10px;
-    padding-bottom: 10px; 
-    border-radius: 999px;
-    border-color: $border-color !important;
-    color:$text-black
-}
-.text-black1{
-    color: $text-black;
-    font-family: $family;
+  font-family: $family;
 }
 
-.navtext{
-    font-weight: 500;
-    font-size: 14px;
-    font-size: 0.875rem; /* 14px */
-    line-height: 1.25rem; /* 20px */
+.primary-button {
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 999px;
+  border-color: $border-color !important;
+  color: $text-black
 }
 
-.hero-image{
-      /* The image used */
-    /*  background-image: url("~/assets/file/background.png");*/
-  background-color: #F1F1F1;  
+.text-black1 {
+  color: $text-black;
+  font-family: $family;
+}
+
+.navtext {
+  font-weight: 500;
+  font-size: 14px;
+  font-size: 0.875rem;
+  /* 14px */
+  line-height: 1.25rem;
+  /* 20px */
+}
+
+.hero-image {
+  /* The image used */
+  /*  background-image: url("~/assets/file/background.png");*/
+  background-color: #F1F1F1;
   /* Full height */
-  height: 100vh; 
+  height: 100vh;
 
   /* Center and scale the image nicely */
   background-position: center;
@@ -91,13 +103,14 @@ $background-page: #f8fafc;
 
 }
 
-.bac-white{
-  background-color: $background-page !important;
+.bac-white {
+  background-color: white;
+  border-bottom-width: 1px;
 }
 
-.sidebarmenu{
+.sidebarmenu {
   display: block;
-  width: 320px;
+  width: 300px;
   background: white;
   position: relative;
   z-index: 999;
@@ -107,12 +120,12 @@ $background-page: #f8fafc;
 
 }
 
-.logo-panel{
+.logo-panel {
   max-width: 170px;
 }
 
 @media only screen and (min-width: 1280px) {
-  .contentpage{
+  .contentpage {
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
@@ -124,7 +137,7 @@ $background-page: #f8fafc;
 
 
 @media only screen and (min-width: 1400px) {
-  .contentpage{
+  .contentpage {
     max-width: 1100px;
     margin-left: auto;
     margin-right: auto;
@@ -135,8 +148,8 @@ $background-page: #f8fafc;
 }
 
 @media only screen and (min-width: 1500px) {
-  .contentpage{
-    max-width: 1200px;
+  .contentpage {
+    max-width: 1500px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 30px;
@@ -146,8 +159,8 @@ $background-page: #f8fafc;
 }
 
 @media only screen and (min-width: 1580px) {
-  .contentpage{
-    max-width: 1100px;
+  .contentpage {
+    width: 1400px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 30px;
@@ -157,8 +170,8 @@ $background-page: #f8fafc;
 }
 
 @media only screen and (min-width: 1700px) {
-  .contentpage{
-    max-width: 1350px;
+  .contentpage {
+    width: 1500px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 30px;
@@ -167,16 +180,16 @@ $background-page: #f8fafc;
   }
 }
 
-.menutext{
-  font-family: $family-sans;
+.menutext {
+  font-family: $family;
   font-weight: 500;
   font-size: 16px;
   padding: 0px 18px 30px 0px;
   color: $text-menu
 }
 
-.menuacc{
-  font-family: $family-sans;
+.menuacc {
+  font-family: $family;
   font-weight: 500;
   font-size: 15px;
   padding: 10px;
@@ -185,17 +198,17 @@ $background-page: #f8fafc;
 }
 
 
-.menutexticon{
+.menutexticon {
   color: $text-menu;
   margin-right: 12px;
 }
 
-.menutexticonlog{
+.menutexticonlog {
   color: rgb(156 163 175 / var(--tw-text-opacity));
   margin-right: 8px;
 }
 
-.openmenu{
+.openmenu {
   color: $text-gray;
 }
 
@@ -203,38 +216,43 @@ $background-page: #f8fafc;
 /* Accordion*/
 // Layout
 .row {
-  display:flex;
+  display: flex;
+
   .col {
-    flex:1;
+    flex: 1;
   }
 }
+
 /* Accordion styles */
 .tabs {
   overflow: hidden;
   width: 270px;
 }
+
 .tab {
   width: 70%;
   color: white;
   overflow: hidden;
+
   &-label {
     display: flex;
     justify-content: space-between;
     font-weight: bold;
     cursor: pointer;
-    
+
     /* Icon */
     &::after {
-     // content: "\276F";
+      // content: "\276F";
       content: url('https://api.iconify.design/carbon/chevron-down.svg');
       width: 17px;
       height: 17px;
       margin-top: 3px;
-      color:#1E1919;
- 
+      color: #1E1919;
+
       transition: all .25s;
     }
   }
+
   &-content {
     max-height: 0;
     padding: 0 1em;
@@ -242,6 +260,7 @@ $background-page: #f8fafc;
     color: $text-menu;
     transition: all .25s;
   }
+
   &-close {
     display: flex;
     justify-content: flex-end;
@@ -254,16 +273,123 @@ $background-page: #f8fafc;
 
 // :checked
 input:checked {
-  + .tab-label {
+  +.tab-label {
     &::after {
       transform: rotate(180deg);
       margin-top: 5.5px;
     }
   }
-  ~ .tab-content {
+
+  ~.tab-content {
     max-height: 100vh;
     width: 275px;
     margin-top: -12px;
     margin-bottom: 22px;
   }
+}
+
+.image-size {
+  object-fit: cover;
+  width: 500px;
+  height: 200px;
+}
+
+.border-single-quiz {
+  border-radius: 20px;
+  border-color: $border-color;
+  border-width: 1px;
+  background-color: white;
+}
+
+.border-single-quiz-image {
+  border-radius: 15px;
+  height: 160px;
+  width: 100%;
+
+}
+
+.quiz-title-card {
+  font-family: $family;
+  font-size: 16px;
+  margin-top: 15px;
+  display: flex;
+  position: relative;
+  height: 45px
+}
+
+.text-des-quiz {
+  font-family: $family;
+  font-size: 14px;
+  font-weight: 300;
+  color: $text-option
+}
+
+
+.difficulty-button {
+  display: flex;
+  margin-bottom: 30px;
+  place-items: center;
+  border-radius: 999px;
+  border-color: $color-difficult;
+  border-width: 1px;
+  padding: 5px 10px 4px 12px;
+  margin-right: 95px;
+  margin-left: -50px;
+}
+
+.time-button {
+  display: flex;
+  place-items: center;
+  border-radius: 999px;
+  border-color: $color-time;
+  border-width: 1px;
+  padding: 4px 10px 4px 10px;
+  margin-right: 45px;
+}
+
+.answer-button {
+  display: flex;
+  place-items: center;
+  border-radius: 999px;
+  border-color: $color-answer;
+  border-width: 1px;
+  padding: 4px 10px 4px 15px;
+  margin-right: 168px;
+  background-color: $color-answer-bg;
+}
+
+.quiz-option {
+  color: $text-option
+}
+
+.border-hero{
+  border-radius: 20px;
+  background-color: white;
+
+}
+
+.ok-answer{
+  color: $green;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.bad-answer{
+  color: $red;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+
+.text-hero-title{
+  font-family: $family;
+  font-weight: 400;
+  font-size: 21px;
+  margin-bottom: 24px;
+  color: $text-menu
+}
+
+.hero-icon{
+  color: $text-gray;
+  margin-right: 10px;
 }

@@ -1,10 +1,22 @@
-export type Post = { 
+
+enum Difficult{
+
+}
+
+export type FastTwo = { 
     "success": boolean,
     "data": string[],
     "message": string,
     "count": number
 }
 
+export type Quiz = { 
+    "title": string,
+    "image": string,
+    "questions_count": number,
+    "difficulty": string,
+    "time": number,
+}
 
 export type User = { 
         user:string []
