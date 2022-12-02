@@ -73,7 +73,7 @@
         </div>
         <div class="">
           <div class="fixed bottom-0 mb-5">
-            <button @click="auth.logout()" class="flex flex-row cursor-pointer">
+            <button @click="44" class="flex flex-row cursor-pointer">
               <Icon
                 name="carbon:logout"
                 size="20"
@@ -101,11 +101,15 @@
               <img class="rounded-full w-10 h-10" src="@/assets/file/profil.jpg" />
               <div class="flex flex-col">
                 <h2 class="name-header mt-0.5">
-                  {{ user.user.name }} {{ user.user.surname }}
+                  {{ user.user.name }} {{ user.user.surname }}{{user.plan.data}}
                 </h2>
                 <!--//TODO Sprawdzić na końcu czy zgadzają się wszystkie plany -->
-                
-                <p class="des-header -mt-1">Premium</p>
+                  <div v-if="(user.plan.data == false)">
+                      <p class="des-header -mt-1">Standard</p>
+                  </div>
+                  <div v-if="(user.plan.data == true)">
+                      <p class="des-header -mt-1">Premium</p>
+                  </div>
               </div>
             </div>
           </div>

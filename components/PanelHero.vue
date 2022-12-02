@@ -52,7 +52,7 @@
       <div class="grid w-full justify-center pt-5">
         <div class="columns-2 flex flex-col mb-5">
           <h3 class="text-2xl mb-2 font-semibold">Standard</h3>
-          <h4 class="text-base">{{user.plan}}</h4>
+          <h4 class="text-base">{{user.plan.data}}</h4>
         </div>
         <div class="flex flex-row mb-5">
           <div class="columns-2 flex flex-col w-full">
