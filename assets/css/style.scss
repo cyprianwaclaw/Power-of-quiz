@@ -28,6 +28,9 @@ $red: #FF7171;
   user-select: none;
 }
 
+.family{
+  font-family: $family;
+}
 
 .content {
   background-color: $background-page !important;
@@ -363,9 +366,9 @@ input:checked {
 }
 
 .border-hero{
-  border-radius: 20px;
   background-color: white;
-
+  box-shadow: -5px 5px 20px 1px rgba(0, 0, 0, 0.04);
+  border-radius: 10px;
 }
 
 .ok-answer{
@@ -384,7 +387,7 @@ input:checked {
 .text-hero-title{
   font-family: $family;
   font-weight: 400;
-  font-size: 21px;
+  font-size: 16px;
   margin-bottom: 24px;
   color: $text-menu
 }
@@ -392,4 +395,15 @@ input:checked {
 .hero-icon{
   color: $text-gray;
   margin-right: 10px;
+}
+
+.border-hero-items{
+  border-right-width: 1px;
+  border-left-color: $border-color;
+}
+
+.border-hero-section {
+  background-color: white;
+  box-shadow: -5px 5px 20px 1px rgba(0, 0, 0, 0.04);
+  border-radius: 10px;
 }

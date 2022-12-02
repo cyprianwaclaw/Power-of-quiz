@@ -7,6 +7,8 @@ export const useUser = defineStore('userlogin',{
         user: [],
         point: [],
         invited:[],
+        plan:[],
+        answer:[],
         loading: false,
     }),
     actions:{
@@ -37,6 +39,17 @@ export const useUser = defineStore('userlogin',{
                 this.loading = true
                 const res = await  axiosInstance.get('/user/getInvitedUsers')
                 this.invited = await res.data
+                this.loading = false
+             }catch(e){
+            console.log(e.response.data)
+             }
+          },
+
+          async getAnswers(){
+            try{
+                this.loading = true
+                const res = await  axiosInstance.get('/user/stats')
+                this.answer = await res.data.data
                 this.loading = false
              }catch(e){
             console.log(e.response.data)
