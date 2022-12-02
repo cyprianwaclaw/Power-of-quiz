@@ -104,8 +104,8 @@
                   {{ user.user.name }} {{ user.user.surname }}
                 </h2>
                 <!--//TODO Sprawdzić na końcu czy zgadzają się wszystkie plany -->
-                <p class="des-header -mt-1" v-if="(user.plan = 'false')">Standard</p>
-                <p class="des-header -mt-1" v-else>Premium</p>
+                
+                <p class="des-header -mt-1">Premium</p>
               </div>
             </div>
           </div>
@@ -119,15 +119,13 @@
 import { ref, onMounted } from "vue";
 import gsap from "gsap";
 import { useUser } from "@/store/useUser";
-import { useAuth } from "@/store/useAuth";
 
-const auth = useAuth();
 
 const user = useUser();
 user.getUser();
 user.getUserPlan();
 
-console.log(useUser);
+
 gsap.config({
   nullTargetWarn: false,
 });
