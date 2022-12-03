@@ -26,7 +26,7 @@ export const useUser = defineStore('userlogin',{
           async getUserPlan(){
             try{
                 this.loading = true
-                const res:boolean = await  axiosInstance.get('/user/getPlan')
+                const res = await  axiosInstance.get('/user/getPlan')
                 this.plan = await res
                 this.loading = false
              }catch(e){

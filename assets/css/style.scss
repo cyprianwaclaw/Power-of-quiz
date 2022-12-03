@@ -14,6 +14,7 @@ $color-answer-bg: rgb(239, 239, 188);
 $text-option-bg: rgb(228, 171, 171);
 $green: #33B970;
 $red: #FF7171;
+$color-blue: #618CFB;
 
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap');
 
@@ -406,4 +407,16 @@ input:checked {
   background-color: white;
   box-shadow: -5px 5px 20px 1px rgba(0, 0, 0, 0.04);
   border-radius: 10px;
+}
+
+.chevron-hero{
+  color: $color-blue;
+  margin-left: 4px;
+}
+
+.przejdz-premium{
+  font-size: 12px;
+  font-weight: 600;
+  color: $color-blue;
+  margin-top: 3px;
 }

@@ -88,29 +88,37 @@
       <div class="mt-32 contentpage" ref="SidebarMenu1">
         <slot />
       </div>
-      <div class="fixed w-full">
+      <div class="fixed w-full family">
         <div
           class="columns-2 absolute w-full md:flex place-items-center h-20 px-10 bac-white"
         >
-          <div class="flex gap-3 flex-row justify-end w-full place-items-center">
-            <div class="flex gap-3 flex-row justify-end w-full place-items-center">
-              <input
-                class="rounded-xl border-gray-300 border-2 h-10 width1 mr-10 px-3 py-5"
-                placeholder="Znajdź quiz"
-              />
-              <img class="rounded-full w-10 h-10" src="@/assets/file/profil.jpg" />
-              <div class="flex flex-col">
-                <h2 class="name-header mt-0.5">
-                  {{ user.user.name }} {{ user.user.surname }}{{user.plan.data}}
-                </h2>
-                <!--//TODO Sprawdzić na końcu czy zgadzają się wszystkie plany -->
-                  <div v-if="(user.plan.data == false)">
+          <div class=" columns-2 flex flex-row w-full place-items-center mr-5">
+              <!--//TODO Wgrywanie avatara do profilu plus if gdy jest null -->
+              <div class="flex gap-4 place-items-center justify-end w-full">
+                  <div v-if="user.user.avatar_path == null">
+                    <Icon name="carbon:user-avatar-filled" size="50" color="#BFCBEE" />
+                  </div>
+                  <div v-else>
+                    <img class="rounded-full w-10 h-10" :src="user.user.avatar_path" />
+                  </div>
+                  <div class="flex flex-col">
+                    <h2 class="text-base font-medium">
+                      {{ user.user.name }} {{ user.user.surname }}
+                    </h2>
+                    <!--//TODO Sprawdzić na końcu czy zgadzają się wszystkie plany -->
+                    <div
+                      v-if="user.plan.data == false"
+                      class="columns-2 flex w-full place-items-center mt-1"
+                    >
                       <p class="des-header -mt-1">Standard</p>
-                  </div>
-                  <div v-if="(user.plan.data == true)">
+                      <div class="flex -mt-1 ml-4 ">
+                        <NuxtLink to="" class="cursor-pointer"><h3 class="przejdz-premium hover:underline">przejdź na premium</h3></NuxtLink>
+                      </div>
+                    </div>
+                    <div v-if="user.plan.data == true" class="mt-1">
                       <p class="des-header -mt-1">Premium</p>
-                  </div>
-              </div>
+                    </div>
+                </div>
             </div>
           </div>
         </div>
@@ -124,11 +132,9 @@ import { ref, onMounted } from "vue";
 import gsap from "gsap";
 import { useUser } from "@/store/useUser";
 
-
 const user = useUser();
 user.getUser();
 user.getUserPlan();
-
 
 gsap.config({
   nullTargetWarn: false,
@@ -300,25 +306,5 @@ const CloseMenu = () => {
 </script>
 
 <style scoped lang="scss">
-.width1 {
-  width: 400px !important;
-  height: 20px !important;
-}
 
-.smooth-enter-active,
-.smooth-leave-active {
-  transition: max-height 0.6s;
-}
-.smooth-enter,
-.smooth-leave-to {
-  max-height: 0;
-}
-.smooth-enter-active,
-.smooth-leave-active {
-  transition: opacity 0.6s;
-}
-.smooth-enter,
-.smooth-leave-to {
-  opacity: 0;
-}
 </style>
