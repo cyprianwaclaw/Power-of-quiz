@@ -59,10 +59,8 @@
 </template>
 
 <script setup lang="ts">
-
-import {Quiz} from '@/api/types'
-defineProps<{quiz: Quiz}>();
-
+import { Quiz } from "@/api/types";
+defineProps<{ quiz: Quiz }>();
 </script>
 
 <style lang="scss" scoped></style>

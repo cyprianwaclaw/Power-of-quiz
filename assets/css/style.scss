@@ -14,7 +14,8 @@ $color-answer-bg: rgb(239, 239, 188);
 $text-option-bg: rgb(228, 171, 171);
 $green: #33B970;
 $red: #FF7171;
-$color-blue: #618CFB;
+$blue: #618CFB;
+$hover-text: rgba(97, 140, 251, 0.1);
 
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap');
 
@@ -29,7 +30,11 @@ $color-blue: #618CFB;
   user-select: none;
 }
 
-.family{
+.title-hero{
+  font-size: 28px;
+  font-weight: 500;
+}
+.family {
   font-family: $family;
 }
 
@@ -125,7 +130,7 @@ $color-blue: #618CFB;
 }
 
 .logo-panel {
-  max-width: 170px;
+  max-width: 210px;
 }
 
 @media only screen and (min-width: 1280px) {
@@ -366,26 +371,26 @@ input:checked {
   color: $text-option
 }
 
-.border-hero{
+.border-hero {
   background-color: white;
   box-shadow: -5px 5px 20px 1px rgba(0, 0, 0, 0.04);
   border-radius: 10px;
 }
 
-.ok-answer{
+.ok-answer {
   color: $green;
   font-size: 28px;
   font-weight: 500;
 }
 
-.bad-answer{
+.bad-answer {
   color: $red;
   font-size: 28px;
   font-weight: 500;
 }
 
 
-.text-hero-title{
+.text-hero-title {
   font-family: $family;
   font-weight: 400;
   font-size: 16px;
@@ -393,12 +398,12 @@ input:checked {
   color: $text-menu
 }
 
-.hero-icon{
+.hero-icon {
   color: $text-gray;
   margin-right: 10px;
 }
 
-.border-hero-items{
+.border-hero-items {
   border-right-width: 1px;
   border-left-color: $border-color;
 }
@@ -409,14 +414,127 @@ input:checked {
   border-radius: 10px;
 }
 
-.chevron-hero{
-  color: $color-blue;
+.chevron-hero {
+  color: $blue;
   margin-left: 4px;
 }
 
-.przejdz-premium{
-  font-size: 12px;
+.przejdz-premium {
+  font-size: 14px;
+  margin-left: 10px;
+  margin-top: px;
   font-weight: 600;
-  color: $color-blue;
-  margin-top: 3px;
+  color: $blue;
+  padding-top: 3px;
+  padding-bottom: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+}
+
+.przejdz-premium:hover {
+  text-decoration: underline;
+  background: $hover-text;
+}
+
+.hero-text-des {
+  font-size: 14px;
+  margin-left: -10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 3px;
+  padding-bottom: 7px;
+  font-weight: 400;
+  color: $text-gray;
+  border-radius: 10px;
+}
+
+.hero-text-des:hover {
+  text-decoration: underline;
+  background: $hover-text;
+  color: $blue;
+
+}
+
+.hero-text-des-chevron {
+  font-size: 14px;
+  margin-left: -10px;
+  padding-left: 10px;
+  padding-right: 3px;
+  padding-top: 3px;
+  padding-bottom: 7px;
+  font-weight: 400;
+  color: $text-gray;
+  border-radius: 10px;
+}
+
+.hero-text-des-chevron:hover {
+  text-decoration: underline;
+  background: $hover-text;
+  color: $blue;
+
+}
+
+//Search bar style
+.search-bar {
+  width: 400px;
+  border-radius: 10px;
+  border-color: $blue;
+  border-width: 0.5px;
+  background-color: $hover-text;
+  padding: 10px 15px 10px 20px
+}
+
+.search-bar::placeholder {
+  font-family: $family;
+  font-size: 14px;
+}
+
+//Search bar style END
+
+.pakiet-standard {
+  font-size: 24px;
+  font-weight: 900;
+  font-family: $family;
+}
+
+.pakiet-premium {
+  font-size: 24px;
+  text-decoration: underline;
+  text-decoration-color: $blue;
+  text-decoration-thickness: 5px;
+  font-weight: 900;
+  font-family: $family;
+
+}
+
+.pakiet-premium-header {
+  font-size: 14px;
+  font-weight: 600;
+  font-family: $family;
+  margin-left: 8px;
+  color: $blue;
+
+}
+
+.button1{
+  border-radius: 8px;
+  border-color: $blue;
+  border-width: 1px;
+  padding: 6px 15px 6px 15px;
+}
+.button1:hover{
+background: $hover-text;
+}
+
+.text-hero-standard {
+  font-size: 14px;
+  margin-bottom: 6px;
+  font-family: $family; 
+color: rgb(73, 73, 73);
+}
+
+.text-hero-items-PREMIUM {
+  color: $blue;
+  font-weight: 600;
 }

@@ -34,10 +34,10 @@
     <div class="columns-2 w-full mx-auto flex">
       <div
         v-if="show"
-        class="min-h-screen sidebarmenu px-8 py-8 relative"
+        class="min-h-screen sidebarmenu px-8 py-4 relative"
         ref="SidebarMenu"
       >
-        <!--//TODO tutaj jest menu sidebar desktop -->
+        <!--//TODO Menu sidebar desktop -->
         <div class="columns-2 w-64 flex place-items-center justify-between fixed">
           <NuxtLink to="/panel"
             ><img class="logo-panel" src="@/assets/file/logo.png"
@@ -57,10 +57,10 @@
               <h3 class="menutext">Quizy</h3>
             </button></NuxtLink
           >
-          <NuxtLink to="/panel"
+          <NuxtLink to="/znajomi"
             ><button class="flex flex-row cursor-pointer">
               <Icon name="carbon:events" size="24" class="menutexticon" />
-              <h3 class="menutext">Znajomi</h3>
+              <h3 class="menutext">Zaproszone osoby</h3>
             </button></NuxtLink
           >
           <AccordionMenu />
@@ -92,33 +92,42 @@
         <div
           class="columns-2 absolute w-full md:flex place-items-center h-20 px-10 bac-white"
         >
-          <div class=" columns-2 flex flex-row w-full place-items-center mr-5">
-              <!--//TODO Wgrywanie avatara do profilu plus if gdy jest null -->
-              <div class="flex gap-4 place-items-center justify-end w-full">
-                  <div v-if="user.user.avatar_path == null">
-                    <Icon name="carbon:user-avatar-filled" size="50" color="#BFCBEE" />
-                  </div>
-                  <div v-else>
-                    <img class="rounded-full w-10 h-10" :src="user.user.avatar_path" />
-                  </div>
-                  <div class="flex flex-col">
-                    <h2 class="text-base font-medium">
-                      {{ user.user.name }} {{ user.user.surname }}
-                    </h2>
-                    <!--//TODO Sprawdzić na końcu czy zgadzają się wszystkie plany -->
-                    <div
-                      v-if="user.plan.data == false"
-                      class="columns-2 flex w-full place-items-center mt-1"
-                    >
-                      <p class="des-header -mt-1">Standard</p>
-                      <div class="flex -mt-1 ml-4 ">
-                        <NuxtLink to="" class="cursor-pointer"><h3 class="przejdz-premium hover:underline">przejdź na premium</h3></NuxtLink>
-                      </div>
-                    </div>
-                    <div v-if="user.plan.data == true" class="mt-1">
-                      <p class="des-header -mt-1">Premium</p>
-                    </div>
+          <div class="columns-2 flex flex-row w-full place-items-center mr-5">
+            <!--//TODO Wgrywanie avatara do profilu plus if gdy jest null -->
+            <div class="flex gap-4 place-items-center justify-end w-full">
+              <div v-if="user.user.avatar_path == null">
+                <Icon
+                  name="carbon:user-avatar-filled"
+                  size="50"
+                  color="#BFCBEE"
+                  class="hover:cursor-pointer"
+                />
+              </div>
+              <div v-else>
+                <img class="rounded-full w-10 h-10" :src="user.user.avatar_path" />
+              </div>
+              <div class="flex flex-col">
+                <h2 class="text-base font-medium">
+                  {{ user.user.name }} {{ user.user.surname }}
+                </h2>
+                <!--//TODO Sprawdzić na końcu czy zgadzają się wszystkie plany -->
+                <div
+                  v-if="(user.plan.data == false)"
+                  class="columns-2 flex w-full place-items-center"
+                >
+                  <p class="text-base text-gray-400 font-semibold">Standard</p>
+                  <NuxtLink to="/panel/plan-premium"
+                    ><button class="przejdz-premium">przejdź na PREMIUM</button></NuxtLink
+                  >
                 </div>
+                <div
+                  v-if="(user.plan.data == true)"
+                  class="columns-2 flex flex-row place-items-center"
+                >
+                  <Icon name="fa:diamond" size="16" class="chevron-hero" />
+                  <h3 class="pakiet-premium-header">PREMIUM</h3>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -305,6 +314,4 @@ const CloseMenu = () => {
 };
 </script>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>
