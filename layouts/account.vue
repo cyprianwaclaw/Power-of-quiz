@@ -51,13 +51,13 @@
               <h3 class="menutext">Strona główna</h3>
             </button></NuxtLink
           >
-          <NuxtLink to="/quizy"
+          <NuxtLink to="/panel/quizy"
             ><button class="flex flex-row cursor-pointer">
               <Icon name="carbon:gamification" size="24" class="menutexticon" />
               <h3 class="menutext">Quizy</h3>
             </button></NuxtLink
           >
-          <NuxtLink to="/znajomi"
+          <NuxtLink to="/panel/zaproszone-osoby"
             ><button class="flex flex-row cursor-pointer">
               <Icon name="carbon:events" size="24" class="menutexticon" />
               <h3 class="menutext">Zaproszone osoby</h3>
@@ -100,7 +100,7 @@
                   name="carbon:user-avatar-filled"
                   size="50"
                   color="#BFCBEE"
-                  class="hover:cursor-pointer"
+                  class=""
                 />
               </div>
               <div v-else>

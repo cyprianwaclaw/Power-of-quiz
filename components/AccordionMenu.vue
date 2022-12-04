@@ -8,10 +8,10 @@
         <label class="tab-label" for="chck1"> <span class="flex flex-row"><Icon name="carbon:user" size="25" class="mr-2" color="black"/><h3 class="menutext ml-1">Moje konto</h3></span></label>
         <div class="tab-content">
           <div class="flex flex-col culumns-5">
-   		    <NuxtLink to="/panel"><button class="flex flex-row cursor-pointer"><h3 class="menuacc">Moje quizy</h3></button></NuxtLink>
-           <NuxtLink to="/panel"><button class="flex flex-row cursor-pointer"><h3 class="menuacc">Dodaj nowy quiz</h3></button></NuxtLink>
-           <NuxtLink to="/panel"><button class="flex flex-row cursor-pointer"><h3 class="menuacc">Moje środki </h3></button></NuxtLink>
-           <NuxtLink to="/panel"><button class="flex flex-row cursor-pointer"><h3 class="menuacc">Faktury i płatności</h3></button></NuxtLink>
+   		    <NuxtLink to="/panel/moje-konto/quizy/moje-quizy"><button class="flex flex-row cursor-pointer"><h3 class="menuacc">Moje quizy</h3></button></NuxtLink>
+           <NuxtLink to="/panel/moje-konto/quizy/dodaj-nowy"><button class="flex flex-row cursor-pointer"><h3 class="menuacc">Dodaj nowy quiz</h3></button></NuxtLink>
+           <NuxtLink to="/panel/moje-konto/moje-srodki"><button class="flex flex-row cursor-pointer"><h3 class="menuacc">Moje środki </h3></button></NuxtLink>
+           <NuxtLink to="/panel/moje-konto/faktury-platnosci"><button class="flex flex-row cursor-pointer"><h3 class="menuacc">Faktury i płatności</h3></button></NuxtLink>
        
       </div>
         </div>

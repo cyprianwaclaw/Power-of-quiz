@@ -7,6 +7,7 @@ export const useUser = defineStore('userlogin',{
         user: [],
         point: [],
         invited:[],
+        invitationToken: [],
         plan:[],
         answer:[],
         loading: false,
@@ -50,6 +51,17 @@ export const useUser = defineStore('userlogin',{
                 this.loading = true
                 const res = await  axiosInstance.get('/user/stats')
                 this.answer = await res.data.data
+                this.loading = false
+             }catch(e){
+            console.log(e.response.data)
+             }
+          },
+
+          async getInvitationToken(){
+            try{
+                this.loading = true
+                const res = await  axiosInstance.get('/user/getInvitationToken')
+                this.invitationToken = await res.data.invitationToken
                 this.loading = false
              }catch(e){
             console.log(e.response.data)

@@ -5,7 +5,7 @@
       <div class="w-full border-hero-section grid grid-cols-4 mx-auto px-5 py-8">
         <div class="grid w-full justify-center border-hero-items pt-4 pr-8">
           <div class="columns-2 flex flex-col mb-4">
-            <h3 class="text-2xl mb-2 font-semibold">33</h3>
+            <h3 class="text-2xl mb-2 font-semibold">{{(user.answer.correct_answers + user.answer.incorrect_answers)}}</h3>
             <h4 class="text-base">Udzielonych odpowiedzi</h4>
           </div>
           <div class="flex flex-row mb-5 -ml-3">
@@ -63,6 +63,7 @@
               <button class="hero-text-des" @click="copy">
                 <Icon name="carbon:copy" size="18" color="#618CFB" class="mr-1" />
                 Skopiuj link polecający
+                {{user.invitationToken}}
               </button>
             </div>
             <div class="columns-2 flex w-full mt- place-items-center">
@@ -151,12 +152,40 @@
 </template>
 
 <script setup lang="ts">
+import {ref} from 'vue'
 import { useUser } from "@/store/useUser";
+
+const allAnswers =ref('')
+
 const user = useUser();
 user.getInvited();
 user.getAnswers();
 user.getUser();
 user.getUserPlan();
+user.getInvitationToken()
+
+const invitationToken = user.getInvitationToken();
+// console.log(user.invitationToken)
+// console.log(user.user)
+const correctAnswers:number = user.answer.correct_answers;
+const incorrectAnswers:number = user.answer.incorrect_answers;
+
+console.log(incorrectAnswers)
+
+const all:number = correctAnswers + incorrectAnswers;
+
+function getSum(first: number, second: number){
+    return first + second;
+}
+
+console.log(getSum(10, 11));
+
+console.log(all)
+
+const Hello=()=> {
+  return "Hello"
+}
+ 
 
 function copy(){
 

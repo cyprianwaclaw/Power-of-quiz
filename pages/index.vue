@@ -1,12 +1,6 @@
 <template><div>
   <div v-if="authStore.access_token.length > 0">
      <!--//TODO Nie zawsze to działa, czasem są błędy -->
-    <div v-for="response in postStore.posts" 
-    :key="response">
-      <h1 v-for="post in response.data" 
-      :key="post">
-      test: {{post.title}} </h1> 
-    </div>
     </div>
   <div v-else>
       <p>Lack of access <NuxtLink to="/login"><u>Login now</u></NuxtLink></p>
