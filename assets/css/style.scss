@@ -3,7 +3,7 @@ $text-menu: #333333;
 $text-black: #1E1919;
 $border-color: #DCDCDC;
 $family: 'Manrope', sans-serif;
-$text-gray: #bdbdbd;
+$text-gray: #a7a2a2;
 $background-page: #ebf0f5;
 $color-difficult: red;
 $color-time: purple;
@@ -449,7 +449,7 @@ input:checked {
   border-radius: 10px;
 }
 
-.hero-text-des:hover {
+.hero-text-des:active {
   text-decoration: underline;
   background: $hover-text;
   color: $blue;
@@ -509,11 +509,31 @@ input:checked {
 }
 
 .pakiet-premium-header {
+  background-color: $hover-text;
   font-size: 14px;
   font-weight: 600;
   font-family: $family;
-  margin-left: 8px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 8px;
+  padding-right: 12px;
+  border-radius: 10px;
   color: $blue;
+
+}
+
+.pakiet-premium-header1 {
+  background-color: $hover-text;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: $family;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 8px;
+  padding-right: 12px;
+  border-radius: 10px;
+  color: $blue;
+  margin-left: -4px;
 
 }
 
@@ -538,3 +558,49 @@ color: rgb(73, 73, 73);
   color: $blue;
   font-weight: 600;
 }
+
+.description-setting-section{
+max-width: 300px;
+margin-top: 10px;
+line-height: 25px;
+font-size:15px;
+color: #6B7280;
+}
+
+.header-setting-section{
+  font-weight:500;
+  font-size:24px;
+  color: $text-black;
+  margin-bottom:5px; 
+}
+
+.rounded-forms-setting{
+  border-radius: 12px;
+}
+
+//start setting input field
+.base-input{
+ display: block;
+ width: 100%;
+ margin-top: 4px;
+ border-width: 1px;
+ border-radius: 8px;
+ border-color: #D1D5DB;
+}
+
+.base-input:focus{
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  border-width: 10px;
+  border-radius: 8px;
+  border-color: $color-answer;
+ }
+
+.base-input-label{
+  padding-bottom: 20px;
+}
+
+
+
+//end setting input field

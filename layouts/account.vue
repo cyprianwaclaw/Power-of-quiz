@@ -85,7 +85,7 @@
         </div>
       </div>
       <!--//TODO Widok strony w slote -->
-      <div class="mt-32 contentpage" ref="SidebarMenu1">
+      <div class="mt-32 contentpage mb-20" ref="SidebarMenu1">
         <slot />
       </div>
       <div class="fixed w-full family">
@@ -107,7 +107,7 @@
                 <img class="rounded-full w-10 h-10" :src="user.user.avatar_path" />
               </div>
               <div class="flex flex-col">
-                <h2 class="text-base font-medium">
+                <h2 class="text-base font-medium -mb-1">
                   {{ user.user.name }} {{ user.user.surname }}
                 </h2>
                 <!--//TODO Sprawdzić na końcu czy zgadzają się wszystkie plany -->
@@ -122,11 +122,11 @@
                 </div>
                 <div
                   v-if="(user.plan.data == true)"
-                  class="columns-2 flex flex-row place-items-center"
                 >
+                <button class="pakiet-premium-header columns-2 flex place-items-center">
                   <Icon name="fa:diamond" size="16" class="chevron-hero" />
-                  <h3 class="pakiet-premium-header">PREMIUM</h3>
-                </div>
+                <p class=" ml-2">PREMIUM</p>                </button>
+               </div>
               </div>
             </div>
           </div>

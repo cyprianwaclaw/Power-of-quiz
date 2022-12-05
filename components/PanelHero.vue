@@ -5,7 +5,12 @@
       <div class="w-full border-hero-section grid grid-cols-4 mx-auto px-5 py-8">
         <div class="grid w-full justify-center border-hero-items pt-4 pr-8">
           <div class="columns-2 flex flex-col mb-4">
-            <h3 class="text-2xl mb-2 font-semibold">{{(user.answer.correct_answers + user.answer.incorrect_answers)}}</h3>
+            <!-- TODO  Sprawdzić czy dodaje się wszystko -->
+            <!--TODO  Dodać ifa gdy ładują się dane, wtedy pokazuje się NaN,
+            link: https://www.tektutorialshub.com/typescript/nan-in-typescript/ -->
+            <h3 class="text-2xl mb-2 font-semibold">
+              {{ user.answer.correct_answers + user.answer.correct_answers }}
+            </h3>
             <h4 class="text-base">Udzielonych odpowiedzi</h4>
           </div>
           <div class="flex flex-row mb-5 -ml-3">
@@ -60,10 +65,15 @@
           </div>
           <div class="flex flex-col -mt-4">
             <div class="columns-2 flex w-full place-items-center">
-              <button class="hero-text-des" @click="copy">
+              <button class="hero-text-des tooltip" @click="copy">
                 <Icon name="carbon:copy" size="18" color="#618CFB" class="mr-1" />
-                Skopiuj link polecający
-                {{user.invitationToken}}
+                Skopiuj kod polecający
+                <div v-if="tooltip">
+                  <span ref="tooltip" class="tooltiptext family">
+                    Skopiowano kod polecający, <br>teraz możesz przesłać go znajomenu
+                  </span>
+                </div>
+                <!-- TODO  invitedToken:   {{user.invitationToken}}-->
               </button>
             </div>
             <div class="columns-2 flex w-full mt- place-items-center">
@@ -152,44 +162,77 @@
 </template>
 
 <script setup lang="ts">
-import {ref} from 'vue'
+import { ref } from "vue";
 import { useUser } from "@/store/useUser";
 
-const allAnswers =ref('')
-
+const tooltip = ref("");
 const user = useUser();
 user.getInvited();
 user.getAnswers();
 user.getUser();
 user.getUserPlan();
-user.getInvitationToken()
+user.getInvitationToken();
 
 const invitationToken = user.getInvitationToken();
-// console.log(user.invitationToken)
 // console.log(user.user)
-const correctAnswers:number = user.answer.correct_answers;
-const incorrectAnswers:number = user.answer.incorrect_answers;
+const correctAnswers: number = user.answer.correct_answers;
+const incorrectAnswers: number = user.answer.incorrect_answers;
 
-console.log(incorrectAnswers)
+const all: number = correctAnswers + incorrectAnswers;
 
-const all:number = correctAnswers + incorrectAnswers;
-
-function getSum(first: number, second: number){
-    return first + second;
+function getSum(first: number, second: number) {
+  return first + second;
 }
 
 console.log(getSum(10, 11));
 
-console.log(all)
 
-const Hello=()=> {
-  return "Hello"
-}
- 
-
-function copy(){
-
+function copy(token:string) {
+  var token = user.invitationToken;
+  navigator.clipboard.writeText(token);
+  tooltip.value =! tooltip.value
+  setTimeout(() => tooltip.value = false, 2300)
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 200px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 10px ;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+</style>
