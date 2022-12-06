@@ -6,12 +6,8 @@ export const useAuth = defineStore('auth',{
     state: ()=>({
         user:[],
         access_token:[],
-    }),//TODO przekierowanie po zalogowaniu 
-
+    }),
     persist: true,
-    getters:{
-
-            },
     actions:{
         async LoginUser(email:string, password:string){
             try{

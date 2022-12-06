@@ -30,10 +30,11 @@ $hover-text: rgba(97, 140, 251, 0.1);
   user-select: none;
 }
 
-.title-hero{
+.title-hero {
   font-size: 28px;
   font-weight: 500;
 }
+
 .family {
   font-family: $family;
 }
@@ -537,21 +538,22 @@ input:checked {
 
 }
 
-.button1{
+.button1 {
   border-radius: 8px;
   border-color: $blue;
   border-width: 1px;
   padding: 6px 15px 6px 15px;
 }
-.button1:hover{
-background: $hover-text;
+
+.button1:hover {
+  background: $hover-text;
 }
 
 .text-hero-standard {
   font-size: 14px;
   margin-bottom: 6px;
-  font-family: $family; 
-color: rgb(73, 73, 73);
+  font-family: $family;
+  color: rgb(73, 73, 73);
 }
 
 .text-hero-items-PREMIUM {
@@ -559,48 +561,92 @@ color: rgb(73, 73, 73);
   font-weight: 600;
 }
 
-.description-setting-section{
-max-width: 300px;
-margin-top: 10px;
-line-height: 25px;
-font-size:15px;
-color: #6B7280;
+.description-setting-section {
+  max-width: 300px;
+  margin-top: 10px;
+  line-height: 25px;
+  font-size: 15px;
+  color: #6B7280;
 }
 
-.header-setting-section{
-  font-weight:500;
-  font-size:24px;
+.header-setting-section {
+  font-weight: 500;
+  font-size: 24px;
   color: $text-black;
-  margin-bottom:5px; 
+  margin-bottom: 5px;
 }
 
-.rounded-forms-setting{
+.rounded-forms-setting {
   border-radius: 12px;
 }
 
 //start setting input field
-.base-input{
- display: block;
- width: 100%;
- margin-top: 4px;
- border-width: 1px;
- border-radius: 8px;
- border-color: #D1D5DB;
-}
-
-.base-input:focus{
+.phone-input {
   display: block;
   width: 100%;
   margin-top: 4px;
-  border-width: 10px;
+  border-width: 1px;
   border-radius: 8px;
-  border-color: $color-answer;
- }
-
-.base-input-label{
-  padding-bottom: 20px;
+  border-color: #D1D5DB;
 }
 
+.phone-input:focus {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  border-width: 1px;
+  border-radius: 8px;
+  border-color: $blue;
+}
 
+.phone-input:focus::placeholder {
+ font-size: 0px;
+}
+
+ 
+
+.phone-input::placeholder {
+  font-size: 16px;
+  font-family: $family;
+  color: $text-black
+
+ }
+
+.base-input-label {
+  padding-bottom: 20px;
+  width: 160px;
+  font-size: 14px;
+  font-weight: 500;
+  color: $text-black;
+}
+
+.base-input {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  border-width: 1px;
+  border-radius: 8px;
+  border-color: #D1D5DB;
+}
+
+.base-input:focus {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  border-width: 1px;
+  border-radius: 8px;
+  border-color: $blue;
+}
+
+.base-input:focus::placeholder {
+ font-size: 0px
+}
+
+.base-input::placeholder {
+  font-size: 16px;
+  font-family: $family;
+  color: $text-black
+
+ }
 
 //end setting input field

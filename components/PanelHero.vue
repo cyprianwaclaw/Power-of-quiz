@@ -173,8 +173,6 @@ user.getUser();
 user.getUserPlan();
 user.getInvitationToken();
 
-const invitationToken = user.getInvitationToken();
-// console.log(user.user)
 const correctAnswers: number = user.answer.correct_answers;
 const incorrectAnswers: number = user.answer.incorrect_answers;
 
