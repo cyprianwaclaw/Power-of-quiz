@@ -6,8 +6,9 @@
           <h2 class="title-hero mb-2">Ustawienia konta</h2>
         </div>
         <SettingPersonal />
+        <!--
         <SettingCompany />
-        <SettingFinancial />
+        <SettingFinancial /> -->
     </NuxtLayout>
   </div>
 </template>

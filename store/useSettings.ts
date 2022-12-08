@@ -1,25 +1,32 @@
 import { defineStore } from 'pinia'
 import { axiosInstance } from '@/axios.config'
+import {UserSettingsPersonal, UserSettingsFinancial, UserSettingsCompanyAddress, UserSettingsCompany} from '@/api/types'
 
+interface StateSettings{
+    userSettingsPersonal: UserSettingsPersonal[],
+    userSettingsFinancial: UserSettingsFinancial[],
+    userSettingsCompanyAddress: UserSettingsCompanyAddress[],
+    userSettingsCompany: UserSettingsCompany[]
+}
 
 export const useSettings = defineStore('settings', {
-    state: () => ({
-        userSettingsPersonal: [],
+    state:():StateSettings => ({
+        userSettingsPersonal:[],
         userSettingsCompany: [],
+        userSettingsCompanyAddress: [],
         userSettingsFinancial: [],
-        success: [],
     }),
     actions: {
-        async getUserSettingsPersonal() {
+        async userSettingsPersonal() {
             try {
-                const res = await axiosInstance.get('/user/settings',)
-                this.userSettingsPersonal = await res.data.personal
+                const res = await axiosInstance.get<UserSettingsPersonal[]>('/user/settings',)
+               // const personal:UserSettingsPersonal = res.data.personal
+                this.userSettingsPersonal = res
             } catch (e) {
                 console.log(e.response.data)
             }
         },
-
-        async getuserSettingsCompany() {
+        async userSettingsCompany() {
             try {
                 const res = await axiosInstance.get('/user/settings',)
                 this.userSettingsCompany = await res.data.company
@@ -27,7 +34,15 @@ export const useSettings = defineStore('settings', {
                 console.log(e.response.data)
             }
         },
-        async getuserSettingsFinancial() {
+        async userSettingsCompanyAddress() {
+            try {
+                const res = await axiosInstance.get('/user/settings',)
+                this.userSettingsCompanyAddress = await res.data.company.address
+            } catch (e) {
+                console.log(e.response.data)
+            }
+        },
+        async userSettingsFinancial() {
             try {
                 const res = await axiosInstance.get('/user/settings',)
                 this.userSettingsFinancial = await res.data.financial
@@ -35,7 +50,6 @@ export const useSettings = defineStore('settings', {
                 console.log(e.response.data)
             }
         },
-
         async UpdatePersonal(name:string, surname:string, email:string, phone:number) {
             try {
                 const res = await axiosInstance.post('/user/settings', { name, surname, email, phone})
@@ -44,24 +58,11 @@ export const useSettings = defineStore('settings', {
                 console.log(e.response.data)
             }
         },
-        async UpdateCompany(company_name, nip, regon, city, postcode, street, building_number, house_number) {
+        async UpdateCompany(company_name:string, nip:number, regon:number, city:string, postcode:any, street:string, building_number:string, house_number:string) {
             try {
                 const res = await axiosInstance.post('/user/settings', { company_name, nip, regon, city, postcode, street, building_number, house_number})
                 this.success = await res.data.sucess
                  } catch (e) {
-                console.log(e.response.data)
-            }
-        },
-        async RegisterUser(email: string, password: string, password_confirmation: string, invitation: string, name: string) {
-            try {
-                const res = await axiosInstance.post('/register', { name, email, password, password_confirmation, invitation, withCredentials: true, })
-                this.user = await res.data.user
-                this.access_token = await res.data.access_token
-                localStorage.setItem("access_token", res.data.access_token)
-                await useRouter().push('/panel')
-                window.location.reload();
-                // await window.location.replace("https://power-of-quiz-dev.vercel.app/");
-            } catch (e) {
                 console.log(e.response.data)
             }
         },

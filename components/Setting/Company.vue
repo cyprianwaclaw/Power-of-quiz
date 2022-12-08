@@ -49,7 +49,7 @@
                 <div class="col-span-6 sm:col-span-3  ">
                   <label for="last-name" class="base-input-label">Kod pocztowy</label>
                   <input
-                    :placeholder="settings.userSettingsCompany.address"
+                    :placeholder="settings.userSettingsCompany.address.postcode"
                     v-model="postcode"
                     class="base-input"
                   />
@@ -114,7 +114,6 @@
 </template>
 
 <script setup lang="ts">
-import { useUser } from "@/store/useUser";
 import { useSettings } from "@/store/useSettings";
 import { ref, onMounted } from "vue";
 

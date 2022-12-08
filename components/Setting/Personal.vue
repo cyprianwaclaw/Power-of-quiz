@@ -16,19 +16,16 @@
                   <label for="first-name" class="base-input-label">Imię</label>
                   <input
                     type="text"
-                    :placeholder="settings.userSettingsPersonal.name"
                     v-model="name"
                     name="first-name"
                     autocomplete="given-name"
                     class="base-input"
                   />
                 </div>
-
                 <div class="col-span-6 sm:col-span-3 ml-5">
                   <label for="first-name" class="base-input-label">Nazwisko</label>
                   <input
                     type="text"
-                    :placeholder="settings.userSettingsPersonal.surname"
                     v-model="surname"
                     name="first-name"
                     id="first-name"
@@ -40,7 +37,6 @@
                   <label for="first-name" class="base-input-label">Adres e-mail</label>
                   <input
                     type="text"
-                    :placeholder="settings.userSettingsPersonal.email"
                     v-model="email"
                     name="first-name"
                     id="first-name"
@@ -48,13 +44,11 @@
                     class="base-input"
                   />
                 </div>
-
                 <div class="col-span-6 sm:col-span-3 ml-5">
                   <label for="last-name" class="base-input-label">Numer felefonu</label>
                   <input
                     type="tel"
                     name="last-name"
-                    :placeholder="settings.userSettingsPersonal.phone"
                     v-model="phone"
                     autocomplete="family-name"
                     class="phone-input"
@@ -97,8 +91,17 @@
       </div>
     </div>
     <div class="hidden sm:block" aria-hidden="true">
-      {{ settings.success }}
-      {{ name }}
+      <div v-for="setting in settings.userSettingsPersonal" :key="setting .name" >
+      test {{setting.email}}
+      </div>
+      <div
+        v-for="response in quiz.fastTwo"
+        :key="response"
+        class="grid grid-cols-4 gap-8"
+      >
+        <QuizCard v-for="quiz in response.data" :key="quiz" :quiz="quiz" />
+        <div v-for="post in response.data" :key="post"></div>
+      </div>
       <div class="py-24">
         <div class="border-t border-gray-300" />
       </div>
@@ -108,17 +111,20 @@
 
 <script setup lang="ts">
 import { useUser } from "@/store/useUser";
+import { Quiz } from "@/store/useQuizzes";
 import { useSettings } from "@/store/useSettings";
 import { ref, onMounted } from "vue";
-import { log } from "console";
 
 const name = ref(null);
 const email = ref(null);
 const phone = ref(null);
 const surname = ref(null);
 
+const quiz = Quiz();
+quiz.getFastTwo();
+
 const settings = useSettings();
-settings.getUserSettingsPersonal();
+settings.userSettingsPersonal();
 const user = useUser();
 
 async function UpdatePersonal() {

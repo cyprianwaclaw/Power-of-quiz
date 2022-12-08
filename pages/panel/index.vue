@@ -8,15 +8,17 @@
         class="grid grid-cols-4 gap-8"
       >
         <QuizCard v-for="quiz in response.data" :key="quiz" :quiz="quiz" />
-        <div v-for="post in response.data" :key="post"></div>
+        <div v-for="post in response.data" :key="post">
+          {{post.id}}
+        </div>
       </div>
     </NuxtLayout>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
 import { Quiz } from "@/store/useQuizzes";
+import { useSettings } from "@/store/useSettings";
 
 const quiz = Quiz();
 quiz.getFastTwo();
