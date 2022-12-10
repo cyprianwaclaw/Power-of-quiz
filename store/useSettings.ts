@@ -7,7 +7,7 @@ export const useSettings = defineStore('settings', {
         userSettings:{} as UserSettings,
     }),
     actions: {
-        async userSettings() {
+        async getuserSettings() {
             try {
                 const res = await axiosInstance.get<UserSettings>('/user/settings',)
                // const personal:UserSettingsPersonal = res.data.personal
