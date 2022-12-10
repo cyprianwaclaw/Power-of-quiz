@@ -91,7 +91,8 @@
       </div>
     </div>
 <div class="mt-10">
-{{ settings.userSettings.personal.surname}}
+{{ settings.userSettingsPersonal.surname}}
+{{ settings.userSettingsPersonal.name}}
 </div>
 
   </div>
@@ -109,7 +110,7 @@ const surname = ref(null);
 
 
 const settings = useSettings();
-settings.getuserSettings();
+settings.getuserSettingsPersonal();
 const user = useUser();
 
 async function UpdatePersonal() {

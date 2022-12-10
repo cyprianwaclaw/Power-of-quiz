@@ -2,16 +2,34 @@ import { defineStore } from 'pinia'
 import { axiosInstance } from '@/axios.config'
 import {UserSettings, UserSettingsFinancial, UserSettingsCompanyAddress, UserSettingsCompany} from '@/api/types'
 
+export type UserSettingsPersonal = {
+    personal:{
+      name: string
+      surname: any
+      email: string
+      phone: string
+    }
+  }
+
+
+  export type UserSettingsPersonalState = {
+      name: string
+      surname: any
+      email: string
+      phone: string
+  }
+  
+
 export const useSettings = defineStore('settings', {
     state:() => ({
-        userSettings:{} as UserSettings,
+        userSettingsPersonal:{} as UserSettingsPersonalState,
     }),
     actions: {
-        async getuserSettings() {
+        async getuserSettingsPersonal() {
             try {
-                const res = await axiosInstance.get<UserSettings>('/user/settings',)
+                const res = await axiosInstance.get< UserSettingsPersonal>('/user/settings',)
                // const personal:UserSettingsPersonal = res.data.personal
-                this.userSettings = res.data
+                this.userSettingsPersonal = res.data.personal
             } catch (e) {
                 console.log(e.response.data)
             }

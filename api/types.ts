@@ -45,10 +45,12 @@ export interface UserSettings {
   };
 
 export type UserSettingsPersonal = {
-    name: string;
-    surname: any;
-    email: string;
-    phone: string;
+  personal:{
+    name: string
+    surname: any
+    email: string
+    phone: string
+  }
 }
 export type UserSettingsCompany = {
     name: string;
