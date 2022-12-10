@@ -90,28 +90,15 @@
         </form>
       </div>
     </div>
-    <div class="hidden sm:block" aria-hidden="true">
-      <div v-for="setting in settings.userSettingsPersonal" :key="setting .name" >
-      test {{setting.email}}
-      </div>
-      <div
-        v-for="response in quiz.fastTwo"
-        :key="response"
-        class="grid grid-cols-4 gap-8"
-      >
-        <QuizCard v-for="quiz in response.data" :key="quiz" :quiz="quiz" />
-        <div v-for="post in response.data" :key="post"></div>
-      </div>
-      <div class="py-24">
-        <div class="border-t border-gray-300" />
-      </div>
-    </div>
+<div class="mt-10">
+{{ settings.userSettings.personal.name}}
+</div>
+
   </div>
 </template>
 
 <script setup lang="ts">
 import { useUser } from "@/store/useUser";
-import { Quiz } from "@/store/useQuizzes";
 import { useSettings } from "@/store/useSettings";
 import { ref, onMounted } from "vue";
 
@@ -120,11 +107,9 @@ const email = ref(null);
 const phone = ref(null);
 const surname = ref(null);
 
-const quiz = Quiz();
-quiz.getFastTwo();
 
 const settings = useSettings();
-settings.userSettingsPersonal();
+settings.userSettings();
 const user = useUser();
 
 async function UpdatePersonal() {

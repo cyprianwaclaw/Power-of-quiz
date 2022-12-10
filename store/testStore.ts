@@ -18,11 +18,6 @@ interface Personal{
     surname: string
 }
 
-interface State {
-   test: Personal
-}
-
-
 export const testStore = defineStore('test', {
     state: () => ({
         test:{} as Personal

@@ -2,6 +2,7 @@
   <div>
     <NuxtLayout name="account">
       <SearchBar />
+      Imię: {{test.test.name}}
       <div class="columns-2 w-full family">
         <div class="justify-start w-full">
           <h2 class="title-hero mb-32">Moje środki</h2>
@@ -20,7 +21,7 @@
       </div>
 </div>
       </div>
-      {{test.test.name}}
+      
     </NuxtLayout>
   </div>
 </template>

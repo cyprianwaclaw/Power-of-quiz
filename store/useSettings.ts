@@ -1,55 +1,22 @@
 import { defineStore } from 'pinia'
 import { axiosInstance } from '@/axios.config'
-import {UserSettingsPersonal, UserSettingsFinancial, UserSettingsCompanyAddress, UserSettingsCompany} from '@/api/types'
-
-interface StateSettings{
-    userSettingsPersonal: UserSettingsPersonal[],
-    userSettingsFinancial: UserSettingsFinancial[],
-    userSettingsCompanyAddress: UserSettingsCompanyAddress[],
-    userSettingsCompany: UserSettingsCompany[]
-}
+import {UserSettings, UserSettingsFinancial, UserSettingsCompanyAddress, UserSettingsCompany} from '@/api/types'
 
 export const useSettings = defineStore('settings', {
-    state:():StateSettings => ({
-        userSettingsPersonal:[],
-        userSettingsCompany: [],
-        userSettingsCompanyAddress: [],
-        userSettingsFinancial: [],
+    state:() => ({
+        userSettings:{} as UserSettings,
     }),
     actions: {
-        async userSettingsPersonal() {
+        async userSettings() {
             try {
-                const res = await axiosInstance.get<UserSettingsPersonal[]>('/user/settings',)
+                const res = await axiosInstance.get<UserSettings>('/user/settings',)
                // const personal:UserSettingsPersonal = res.data.personal
-                this.userSettingsPersonal = res
+                this.userSettings = res.data
             } catch (e) {
                 console.log(e.response.data)
             }
         },
-        async userSettingsCompany() {
-            try {
-                const res = await axiosInstance.get('/user/settings',)
-                this.userSettingsCompany = await res.data.company
-            } catch (e) {
-                console.log(e.response.data)
-            }
-        },
-        async userSettingsCompanyAddress() {
-            try {
-                const res = await axiosInstance.get('/user/settings',)
-                this.userSettingsCompanyAddress = await res.data.company.address
-            } catch (e) {
-                console.log(e.response.data)
-            }
-        },
-        async userSettingsFinancial() {
-            try {
-                const res = await axiosInstance.get('/user/settings',)
-                this.userSettingsFinancial = await res.data.financial
-            } catch (e) {
-                console.log(e.response.data)
-            }
-        },
+        
         async UpdatePersonal(name:string, surname:string, email:string, phone:number) {
             try {
                 const res = await axiosInstance.post('/user/settings', { name, surname, email, phone})

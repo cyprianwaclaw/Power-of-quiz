@@ -9,7 +9,6 @@
       >
         <QuizCard v-for="quiz in response.data" :key="quiz" :quiz="quiz" />
         <div v-for="post in response.data" :key="post">
-          {{post.id}}
         </div>
       </div>
     </NuxtLayout>

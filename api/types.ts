@@ -13,6 +13,37 @@ export type Quiz = {
     time: number,
 }
 
+export interface UserSettings {
+    personal: {
+      name: string;
+      surname: any;
+      email: string;
+      phone: string;
+    };
+    company: {
+      name: string;
+      nip: string;
+      regon: string;
+      address: {
+        id: number;
+        addressable_type: string;
+        addressable_id: number;
+        city: string;
+        postcode: string;
+        street: string;
+        building_number: string;
+        house_number: string;
+        created_at: string;
+        updated_at: string;
+      };
+    };
+    financial: {
+      iban: string;
+      bank_name: string;
+      swift: string;
+    };
+  };
+
 export type UserSettingsPersonal = {
     name: string;
     surname: any;
