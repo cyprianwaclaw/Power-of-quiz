@@ -7,7 +7,7 @@
         :key="response"
         class="grid grid-cols-4 gap-8"
       >
-        <QuizCard v-for="quiz in response.data" :key="quiz" :quiz="quiz" />
+        <QuizyQuizCard v-for="quiz in response.data" :key="quiz" :quiz="quiz" />
         <div v-for="post in response.data" :key="post">
         </div>
       </div>

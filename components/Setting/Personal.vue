@@ -16,6 +16,7 @@
                   <label for="first-name" class="base-input-label">Imię</label>
                   <input
                     type="text"
+                    :placeholder="settings.userSettingsPersonal.name"
                     v-model="name"
                     name="first-name"
                     autocomplete="given-name"
@@ -26,6 +27,7 @@
                   <label for="first-name" class="base-input-label">Nazwisko</label>
                   <input
                     type="text"
+                    :placeholder="settings.userSettingsPersonal.surname"
                     v-model="surname"
                     name="first-name"
                     id="first-name"
@@ -37,6 +39,7 @@
                   <label for="first-name" class="base-input-label">Adres e-mail</label>
                   <input
                     type="text"
+                    :placeholder="settings.userSettingsPersonal.email"
                     v-model="email"
                     name="first-name"
                     id="first-name"
@@ -48,6 +51,7 @@
                   <label for="last-name" class="base-input-label">Numer felefonu</label>
                   <input
                     type="tel"
+                    :placeholder="settings.userSettingsPersonal.phone"
                     name="last-name"
                     v-model="phone"
                     autocomplete="family-name"
@@ -90,11 +94,6 @@
         </form>
       </div>
     </div>
-<div class="mt-10">
-{{ settings.userSettingsPersonal.surname}}
-{{ settings.userSettingsPersonal.name}}
-</div>
-
   </div>
 </template>
 
@@ -103,26 +102,23 @@ import { useUser } from "@/store/useUser";
 import { useSettings } from "@/store/useSettings";
 import { ref, onMounted } from "vue";
 
-const name = ref(null);
-const email = ref(null);
-const phone = ref(null);
-const surname = ref(null);
+const name = ref("");
+const email = ref("");
+const phone = ref("");
+const surname = ref("");
 
 
 const settings = useSettings();
-settings.getuserSettingsPersonal();
+settings.getUserSettingsPersonal();
+settings.getUserSettingsCompany();
+settings.getUserSettingsCompanyAddress();
+settings.getUserSettingsFinancial();
 const user = useUser();
 
 async function UpdatePersonal() {
   await settings.UpdatePersonal(name.value, surname.value, email.value, phone.value);
 }
 
-//{"name":"Cyddddd","surname":"Wacław","email":"cyprian@waclaw.pl",
-//"phone":["312", "312", "312"], "nip": "5512638501", "   e":"porro"
-//,"regon":"382331034","city":"Wadowice","street":"Łazówka 5a",
-//"building_number":"fyw","bank_name":"BANK MILLENIUM SA",
-//"postcode":"34-100", "house_number":"5", "iban": "PL65802510332533324434431256"
-//,"swift":"BIGBPLPW" }
 </script>
 
 <style scoped></style>

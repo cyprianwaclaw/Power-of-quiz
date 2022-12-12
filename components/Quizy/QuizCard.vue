@@ -11,19 +11,19 @@
         <Icon name="ph:clock-thin" class="mr-1 quiz-option" />
         <p class="text-des-quiz">{{ quiz.time }} min</p>
       </div>
-      <div v-if="(quiz.difficulty = 'medium')">
+      <dv v-if="(quiz.difficulty = 'medium')">
         <div class="difficulty-button">
           <Icon name="ph:graduation-cap-thin" class="mr-1 quiz-option" />
           <p class="text-des-quiz">średni</p>
         </div>
-      </div>
+      </dv>
       <div v-else-if="(quiz.difficulty = 'easy')">
         <div class="difficulty-button">
           <Icon name="ph:graduation-cap-thin" class="mr-1 quiz-option" />
           <p class="text-des-quiz">łatwy</p>
         </div>
       </div>
-      <div v-else>
+      <div v-else-if="(quiz.difficulty = 'hard')">
         <div class="difficulty-button">
           <Icon name="ph:graduation-cap-thin" class="mr-1 quiz-option" />
           <p class="text-des-quiz">trudny</p>

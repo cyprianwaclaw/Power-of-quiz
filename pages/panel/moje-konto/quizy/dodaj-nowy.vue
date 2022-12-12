@@ -1,139 +1,284 @@
 <template>
-    <div>
-      <NuxtLayout name="account">
-        <SearchBar />
-        <div class="columns-2 w-full family">
-          <div class="justify-start w-full">
-            <h2 class="title-hero mb-32">Moje quizy</h2>
-          </div>
-        </div>
-        <div class="md:col-span-2 md:mt-0">
-            <form action="#" method="POST">
-              <div class="shadow sm:overflow-hidden sm:rounded-md">
-                <div class="space-y-6 bg-white px-4 py-5 sm:p-6">
-                  <div class="grid grid-cols-3 gap-6">
-                    <div class="col-span-3 sm:col-span-2">
-                      <label
-                        for="company-website"
-                        class="block text-sm font-medium text-gray-700"
-                        >Website</label
-                      >
-                      <div class="mt-1 flex rounded-md shadow-sm">
-                        <span
-                          class="inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-3 text-sm text-gray-500"
-                          >http://</span
-                        >
+  <div class="family">
+    <NuxtLayout name="account">
+      <SearchBar />
+      <div class="justify-start mb-36 full">
+        <h2 class="title-hero mb-2">
+          Dodaj nowy <span class="pakiet-premium">Quiz</span>
+        </h2>
+        <p class="description-title">
+          Dodaj nowy quiz do serwisu, w którego będą mogli grać wszyscy użytkownicy
+          serwisu, którzy posiadają plan
+          <span class="text-hero-items-PREMIUM">PREMIUM</span>. Do dodaniu quizu, musi
+          zostać on zweryfikowany, pod kątem spełniania naszych standardów. Zostaniesz
+          poinformowany gdy zostanie pozytywnie rozpatrzona jego weryfikacja.
+        </p>
+      </div>
+      <form @submit.prevent="NewQuiz">
+        <!-- TITLE SECTION -->
+
+        <div class="mt-10 sm:mt-0 border-bottom1">
+          <div class="md:grid md:grid-cols-3 md:gap-6">
+            <div class="md:col-span-1">
+              <div class="px-4 sm:px-0">
+                <h3 class="header-setting-section">Nazwa</h3>
+                <p class="description-setting-section">
+                  Uzupełnij podstawowe informacjw o quizie, jego tytół, stopień trudności,
+                  czasowany czas trwania, kategorię oraz wgraj zdjęcie.
+                </p>
+              </div>
+            </div>
+            <div class="mt-5 md:col-span-2 md:mt-0">
+              <div class="overflow-hidden shadow rounded-forms-setting">
+                <div class="bg-white sm:p-6">
+                  <div class="block mx-8 mt-4">
+                    <label for="first-name" class="base-input-new-quiz-label"
+                      >Tytuł quizu</label
+                    >
+                    <input
+                      type="text"
+                      placeholder="Napisz tytuł swojego quizu..."
+                      v-model="company_name"
+                      name="first-name"
+                      autocomplete="given-name"
+                      class="base-input-new-quiz"
+                    />
+                  </div>
+                  <div class="block mx-8 mt-7">
+                    <label for="first-name" class="base-input-new-quiz-label">
+                      Wybierz kategorię</label
+                    >
+                    {{ selected }}
+
+                    <select v-model="selected" required class="base-input-new-quiz">
+                      <option value="" hidden>Kategoria...</option>
+                      <option>A</option>
+                      <option>B</option>
+                      <option>C</option>
+                    </select>
+                  </div>
+
+                  <div class="grid grid-cols-6 gap-6 px-8 py-5 mt-2">
+                    <div class="col-span-6 sm:col-span-3">
+                      <label for="first-name" class="base-input-new-quiz-label"
+                        >Czas trwania
+                      </label>
+                      <div class="columns-2">
                         <input
                           type="text"
-                          name="company-website"
-                          id="company-website"
-                          class="block w-full flex-1 rounded-none rounded-r-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                          placeholder="www.example.com"
+                          placeholder="Wprowadź czas trwania..."
+                          v-model="nip"
+                          name="first-name"
+                          id="first-name"
+                          for="given-email"
+                          class="base-input-new-quiz"
                         />
+                        <p class="base-input-new-quiz-label flex pt-5">minut</p>
                       </div>
                     </div>
-                  </div>
-
-                  <div>
-                    <label for="about" class="block text-sm font-medium text-gray-700"
-                      >About</label
-                    >
-                    <div class="mt-1">
-                      <textarea
-                        id="about"
-                        name="about"
-                        rows="3"
-                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                        placeholder="you@example.com"
+                    <div class="col-span-6 sm:col-span-3 ml-5">
+                      <label for="first-name" class="base-input-new-quiz-label"
+                        >Poziom trudności</label
+                      >
+                      <input
+                        type="text"
+                        placeholder="Trudność..."
+                        v-model="regon"
+                        name="first-name"
+                        id="first-name"
+                        autocomplete="given-name"
+                        class="base-input-new-quiz"
                       />
                     </div>
-                    <p class="mt-2 text-sm text-gray-500">
-                      Brief description for your profile. URLs are hyperlinked.
-                    </p>
                   </div>
 
-                  <div>
-                    <label class="block text-sm font-medium text-gray-700">Photo</label>
-                    <div class="mt-1 flex items-center">
-                      <span
-                        class="inline-block h-12 w-12 overflow-hidden rounded-full bg-gray-100"
-                      >
-                        <svg
-                          class="h-full w-full text-gray-300"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z"
-                          />
-                        </svg>
-                      </span>
-                      <button
-                        type="button"
-                        class="ml-5 rounded-md border border-gray-300 bg-white py-2 px-3 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                      >
-                        Change
-                      </button>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label class="block text-sm font-medium text-gray-700"
-                      >Cover photo</label
+                  <div class="flex items-center justify-center w-full px-8 py-4 mb-5">
+                    <label
+                      for="dropzone-file"
+                      class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 0 hover:bg-gray-100"
                     >
-                    <div
-                      class="mt-1 flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6"
-                    >
-                      <div class="space-y-1 text-center">
+                      <div class="flex flex-col items-center justify-center pt-5 pb-6">
                         <svg
-                          class="mx-auto h-12 w-12 text-gray-400"
-                          stroke="currentColor"
-                          fill="none"
-                          viewBox="0 0 48 48"
                           aria-hidden="true"
+                          class="w-10 h-10 mb-3 text-gray-400"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
-                            stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
-                          />
+                            stroke-width="2"
+                            d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
+                          ></path>
                         </svg>
-                        <div class="flex text-sm text-gray-600">
-                          <label
-                            for="file-upload"
-                            class="relative cursor-pointer rounded-md bg-white font-medium text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:text-indigo-500"
-                          >
-                            <span>Upload a file</span>
-                            <input
-                              id="file-upload"
-                              name="file-upload"
-                              type="file"
-                              class="sr-only"
-                            />
-                          </label>
-                          <p class="pl-1">or drag and drop</p>
-                        </div>
-                        <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+                        <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
+                          <span class="font-semibold">Kliknij aly wrać zdjęcie</span> lub
+                          przesuń je tutaj
+                        </p>
+                        <p class="text-xs">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
                       </div>
+                      <input id="dropzone-file" type="file" class="hidden" />
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DESCRIPTION SECTION -->
+
+        <div class="mt-10 sm:mt-0 border-bottom">
+          <div class="md:grid md:grid-cols-3 md:gap-6">
+            <div class="md:col-span-1">
+              <div class="px-4 sm:px-0">
+                <h3 class="header-setting-section">Opis</h3>
+                <p class="description-setting-section">
+                  Opisz czego dotyczy Twój quiz, aby inni użytkownicy, wiedzieli czy warto
+                  w niego
+                </p>
+              </div>
+            </div>
+            <div class="mt-5 md:col-span-2 md:mt-0">
+              <div class="overflow-hidden shadow rounded-forms-setting">
+                <div class="bg-white sm:p-6">
+                  <div class="block mx-8 my-7 mb-12">
+                    <label for="first-name" class="base-input-new-quiz-label"
+                      >Wpisz tutaj swój opis</label
+                    >
+                    <textarea
+                      type="text"
+                      placeholder="Opis..."
+                      v-model="company_name"
+                      name="first-name"
+                      autocomplete="given-name"
+                      class="text-input"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ANSWER QUESTIONS -->
+
+        <div class="mt-10 sm:mt-0 border-bottom2">
+          <div class="md:grid md:grid-cols-3 md:gap-6">
+            <div class="md:col-span-1">
+              <div class="px-4 sm:px-0">
+                <h3 class="header-setting-section">Pytania do Twojego quizu</h3>
+
+                <p class="description-setting-section">
+                  Dane działalności gospodarczej na które wystawiamy fakturę za zakupiony
+                  pakiet Premium
+                </p>
+              </div>
+            </div>
+            <div class="mt-5 md:col-span-2 md:mt-0">
+              <div class="overflow-hidden shadow rounded-forms-setting">
+                <div class="bg-white sm:p-6">
+                  <div class="block mx-8 mt-4">
+                    <label for="first-name" class="base-input-new-quiz-label"
+                      >Pytanie 1</label
+                    >
+                    <input
+                      type="text"
+                      placeholder="Twoje pytanie..."
+                      v-model="company_name"
+                      class="base-input-new-quiz"
+                    />
+                  </div>
+                  <div class="grid grid-cols-6 gap-6 px-8 py-5">
+                    <div class="col-span-6 sm:col-span-3">
+                      <textarea
+                        type="text"
+                        placeholder="Odpowiedź 1"
+                        v-model="nip"
+                        class="base-input"
+                      />
+                    </div>
+                    <div class="col-span-6 sm:col-span-3 ml-5">
+                      <textarea
+                        type="text"
+                        placeholder="Odpowiedź 2"
+                        v-model="regon"
+                        class="base-input"
+                      />
+                    </div>
+                    <div class="col-span-6 sm:col-span-3">
+                      <textarea
+                        type="text"
+                        placeholder="Odpowiedź 3"
+                        v-model="postcode"
+                        class="base-input"
+                      />
+                    </div>
+                    <div class="col-span-6 sm:col-span-3 ml-5">
+                      <textarea
+                        type="text"
+                        placeholder="Odpowiedź 4"
+                        v-model="city"
+                        class="base-input"
+                      />
                     </div>
                   </div>
                 </div>
+
                 <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
                   <button
-                    type="submit"
-                    class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                    class="text-indigo-600 hover:text-white inline-flex justify-center rounded-md border-indigo-600 border-2 py-2 px-4 text-sm font-medium shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                   >
-                    Zapisz
+                    Dodaj kolejne pytanie
                   </button>
                 </div>
               </div>
-            </form>
+            </div>
           </div>
-      </NuxtLayout>
-    </div>
-  </template>
-  
-  <script setup lang="ts"></script>
-  
-  <style scoped></style>
+        </div>
+
+        <div class="px-4 py-3 text-right sm:px-6">
+          <button
+            class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+          >
+            Prześlij quiz do akceptacji
+          </button>
+        </div>
+      </form>
+    </NuxtLayout>
+  </div>
+</template>
+<script setup lang="ts">
+import { useSettings } from "@/store/useSettings";
+import { ref, onMounted } from "vue";
+
+const company_name = ref(null);
+const nip = ref(null);
+const regon = ref(null);
+const postcode = ref(null);
+const city = ref(null);
+const street = ref(null);
+const building_number = ref(null);
+const house_number = ref(null);
+const selected = ref("");
+
+const settings = useSettings();
+settings.getUserSettingsCompany();
+settings.getUserSettingsCompanyAddress();
+
+async function NewQuiz() {
+  await settings.UpdateCompany(
+    company_name.value,
+    nip.value,
+    regon.value,
+    postcode.value,
+    city.value,
+    street.value,
+    building_number.value,
+    house_number.value
+  );
+}
+</script>
+<style scoped></style>

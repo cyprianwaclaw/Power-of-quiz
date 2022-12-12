@@ -5,10 +5,9 @@
         <div class="justify-start mb-28 full">
           <h2 class="title-hero mb-2">Ustawienia konta</h2>
         </div>
-        <SettingPersonal />
-        <!--
-        <SettingCompany />
-        <SettingFinancial /> -->
+        <SettingPersonal class="border-bottom1" />
+        <SettingCompany class="border-bottom" />
+        <SettingFinancial class="border-bottom2"/>
     </NuxtLayout>
   </div>
 </template>

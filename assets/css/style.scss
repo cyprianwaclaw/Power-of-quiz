@@ -331,6 +331,7 @@ input:checked {
 
 .difficulty-button {
   display: flex;
+  width: 90px;
   margin-bottom: 30px;
   place-items: center;
   border-radius: 999px;
@@ -338,26 +339,29 @@ input:checked {
   border-width: 1px;
   padding: 5px 10px 4px 12px;
   margin-right: 95px;
-  margin-left: -50px;
+  margin-left:-40px;
 }
 
 .time-button {
   display: flex;
+  width: 90px;
   place-items: center;
   border-radius: 999px;
   border-color: $color-time;
   border-width: 1px;
-  padding: 4px 10px 4px 10px;
+  padding: 4px 1px 5px 10px;
   margin-right: 45px;
 }
 
 .answer-button {
   display: flex;
+  width: 120px;
   place-items: center;
+  margin-top: -10px;
   border-radius: 999px;
   border-color: $color-answer;
   border-width: 1px;
-  padding: 4px 10px 4px 15px;
+  padding: 5px 10px 5px 15px;
   margin-right: 168px;
   background-color: $color-answer-bg;
 }
@@ -563,6 +567,14 @@ input:checked {
   color: #6B7280;
 }
 
+.description-title{
+max-width: 550px;
+margin-top: 18px;
+line-height: 32px;
+font-size: 16px;
+color: $text-black;
+}
+
 .header-setting-section {
   font-weight: 500;
   font-size: 24px;
@@ -594,17 +606,16 @@ input:checked {
 }
 
 .phone-input:focus::placeholder {
- font-size: 0px;
+  font-size: 0px;
 }
 
- 
+
 
 .phone-input::placeholder {
   font-size: 16px;
   font-family: $family;
   color: $text-black
-
- }
+}
 
 .base-input-label {
   padding-bottom: 20px;
@@ -633,14 +644,107 @@ input:checked {
 }
 
 .base-input:focus::placeholder {
- font-size: 0px
+  font-size: 0px
 }
 
 .base-input::placeholder {
   font-size: 16px;
   font-family: $family;
   color: $text-black
+}
 
- }
+
+.base-input-new-quiz {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  border-width: 1px;
+  border-radius: 8px;
+  border-color: #D1D5DB;
+}
+
+.base-input-new-quiz:focus {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  border-width: 1px;
+  border-radius: 8px;
+  border-color: $blue;
+}
+
+.base-input-new-quiz:focus::placeholder {
+  font-size: 0px
+}
+
+.base-input-new-quiz::placeholder {
+  font-size: 16px;
+  font-family: $family;
+  color: $text-gray
+}
+
+
+
+
+select:invalid {
+  font-size: 16px;
+  color: $text-gray;
+}
+
+select:invalid:focus {
+  font-size: 16px;
+  color: $text-black;
+}
+
+.text-input {
+  display: block;
+  padding-top: 12px;
+  padding-left: 16px;
+  padding-bottom: 12px;
+  padding-right: 16px;
+  width: 100%;
+  height: 120px;
+  margin-top: 4px;
+  border-width: 1px;
+  border-radius: 8px;
+  border-color: #D1D5DB;
+}
+
+.text-input:focus {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  border-width: 1px;
+  border-radius: 8px;
+  border-color: $blue;
+}
+
+.text-input:focus::placeholder {
+  font-size: 0px
+}
+
+.text-input::placeholder {
+  font-size: 14px;
+  font-family: $family;
+  color: $text-gray
+}
+
 
 //end setting input field
+
+.border-bottom {
+  padding-bottom: 80px;
+  padding-top: 80px;
+  border-bottom-width: 1px;
+  border-color:$border-color;
+}
+
+.border-bottom1 {
+  padding-bottom: 80px;
+  border-bottom-width: 1px;
+  border-color:$border-color;
+}
+
+.border-bottom2{
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
