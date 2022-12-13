@@ -44,6 +44,9 @@
                       class="base-input-new-quiz"
                     />
                   </div>
+
+     
+
                   <div class="block mx-8 mt-7">
                     <label for="first-name" class="base-input-new-quiz-label">
                       Wybierz kategorię</label
@@ -52,12 +55,9 @@
 
                     <select v-model="selected" required class="base-input-new-quiz">
                       <option value="" hidden>Kategoria...</option>
-                      <option>A</option>
-                      <option>B</option>
-                      <option>C</option>
+                      <option v-for="category in quiz.categories" :key="category.id">{{ category.name }}</option>
                     </select>
                   </div>
-
                   <div class="grid grid-cols-6 gap-6 px-8 py-5 mt-2">
                     <div class="col-span-6 sm:col-span-3">
                       <label for="first-name" class="base-input-new-quiz-label"
@@ -66,7 +66,7 @@
                       <div class="columns-2">
                         <input
                           type="text"
-                          placeholder="Wprowadź czas trwania..."
+                          placeholder="Czas..."
                           v-model="nip"
                           name="first-name"
                           id="first-name"
@@ -78,17 +78,14 @@
                     </div>
                     <div class="col-span-6 sm:col-span-3 ml-5">
                       <label for="first-name" class="base-input-new-quiz-label"
-                        >Poziom trudności</label
+                        >Poziom trudności {{ difficult }}</label
                       >
-                      <input
-                        type="text"
-                        placeholder="Trudność..."
-                        v-model="regon"
-                        name="first-name"
-                        id="first-name"
-                        autocomplete="given-name"
-                        class="base-input-new-quiz"
-                      />
+                      <select v-model="difficult" required class="base-input-new-quiz">
+                        <option value="" hidden>Wybierz z listy...</option>
+                        <option value="easy">Łatwe</option>
+                        <option value="medium">Średnie</option>
+                        <option value="hard">Trudne</option>
+                      </select>
                     </div>
                   </div>
 
@@ -179,6 +176,7 @@
             </div>
             <div class="mt-5 md:col-span-2 md:mt-0">
               <div class="overflow-hidden shadow rounded-forms-setting">
+                <form @submit.prevent="newQuestionInput">
                 <div class="bg-white sm:p-6">
                   <div class="block mx-8 mt-4">
                     <label for="first-name" class="base-input-new-quiz-label"
@@ -234,6 +232,7 @@
                     Dodaj kolejne pytanie
                   </button>
                 </div>
+              </form>
               </div>
             </div>
           </div>
@@ -253,6 +252,7 @@
 <script setup lang="ts">
 import { useSettings } from "@/store/useSettings";
 import { ref, onMounted } from "vue";
+import { Quiz } from "@/store/useQuizzes";
 
 const company_name = ref(null);
 const nip = ref(null);
@@ -263,10 +263,14 @@ const street = ref(null);
 const building_number = ref(null);
 const house_number = ref(null);
 const selected = ref("");
+const difficult = ref("");
 
 const settings = useSettings();
 settings.getUserSettingsCompany();
 settings.getUserSettingsCompanyAddress();
+
+const quiz = Quiz();
+quiz.getCategory();
 
 async function NewQuiz() {
   await settings.UpdateCompany(
@@ -279,6 +283,10 @@ async function NewQuiz() {
     building_number.value,
     house_number.value
   );
+}
+
+const newQuestionInput= ()=>{
+console.log('Nowe pole do odpowiedzi')
 }
 </script>
 <style scoped></style>
