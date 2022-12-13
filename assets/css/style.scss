@@ -339,7 +339,7 @@ input:checked {
   border-width: 1px;
   padding: 5px 10px 4px 12px;
   margin-right: 95px;
-  margin-left:-40px;
+  margin-left: -40px;
 }
 
 .time-button {
@@ -567,12 +567,12 @@ input:checked {
   color: #6B7280;
 }
 
-.description-title{
-max-width: 550px;
-margin-top: 18px;
-line-height: 32px;
-font-size: 16px;
-color: $text-black;
+.description-title {
+  max-width: 550px;
+  margin-top: 18px;
+  line-height: 32px;
+  font-size: 16px;
+  color: $text-black;
 }
 
 .header-setting-section {
@@ -735,16 +735,30 @@ select:invalid:focus {
   padding-bottom: 80px;
   padding-top: 80px;
   border-bottom-width: 1px;
-  border-color:$border-color;
+  border-color: $border-color;
 }
 
 .border-bottom1 {
   padding-bottom: 80px;
   border-bottom-width: 1px;
-  border-color:$border-color;
+  border-color: $border-color;
 }
 
-.border-bottom2{
+.border-bottom2 {
   padding-top: 80px;
   padding-bottom: 80px;
+}
+
+.item-question {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.revome-answear {
+  border-radius: 7px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: red;
 }

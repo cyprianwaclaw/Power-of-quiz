@@ -45,8 +45,6 @@
                     />
                   </div>
 
-     
-
                   <div class="block mx-8 mt-7">
                     <label for="first-name" class="base-input-new-quiz-label">
                       Wybierz kategorię</label
@@ -55,7 +53,9 @@
 
                     <select v-model="selected" required class="base-input-new-quiz">
                       <option value="" hidden>Kategoria...</option>
-                      <option v-for="category in quiz.categories" :key="category.id">{{ category.name }}</option>
+                      <option v-for="category in quiz.categories" :key="category.id">
+                        {{ category.name }}
+                      </option>
                     </select>
                   </div>
                   <div class="grid grid-cols-6 gap-6 px-8 py-5 mt-2">
@@ -177,67 +177,73 @@
             <div class="mt-5 md:col-span-2 md:mt-0">
               <div class="overflow-hidden shadow rounded-forms-setting">
                 <form @submit.prevent="newQuestionInput">
-                <div class="bg-white sm:p-6">
-                  <div class="block mx-8 mt-4">
-                    <label for="first-name" class="base-input-new-quiz-label"
-                      >Pytanie 1</label
-                    >
-                    <input
-                      type="text"
-                      placeholder="Twoje pytanie..."
-                      v-model="company_name"
-                      class="base-input-new-quiz"
-                    />
+                  <div class="bg-white sm:p-6">
+                    <div class="block mx-8 -mt-6">
+                      <div v-for="(item, index) in form" :key="item.id" class="mt-10">
+                        <div :class="{active: item.line}" class="disactive"></div>
+                        <label class="base-input-new-quiz-label"
+                          >Pytanie {{ index + 1 }}</label
+                        >
+                        <input
+                          type="text"
+                          placeholder="Twoje pytanie..."
+                          class="base-input-new-quiz"
+                          v-model="item.title"
+                        />
+                        <div class="grid grid-cols-6 gap-6 py-5">
+                          <div class="col-span-6 sm:col-span-3">
+                            <textarea
+                              type="text"
+                              placeholder="Odpowiedź 1"
+                              v-model="item.answer1"
+                              class="base-input"
+                            />
+                          </div>
+                          <div class="col-span-6 sm:col-span-3">
+                            <textarea
+                              type="text"
+                              placeholder="Odpowiedź 2"
+                              v-model="nip"
+                              class="base-input"
+                            />
+                          </div>
+                          <div class="col-span-6 sm:col-span-3">
+                            <textarea
+                              type="text"
+                              placeholder="Odpowiedź 3"
+                              v-model="nip"
+                              class="base-input"
+                            />
+                          </div>
+                          <div class="col-span-6 sm:col-span-3">
+                            <textarea
+                              type="text"
+                              placeholder="Odpowiedź 4"
+                              v-model="nip"
+                              class="base-input"
+                            />
+                          </div>
+                        </div>
+                        <div v-if="item.line" class="item-question">
+                            <button class="revome-answear">Usuń pytanie numer {{ index + 1}}</button>
+                        </div>
+                      
+                      </div>
+                    </div>
                   </div>
-                  <div class="grid grid-cols-6 gap-6 px-8 py-5">
-                    <div class="col-span-6 sm:col-span-3">
-                      <textarea
-                        type="text"
-                        placeholder="Odpowiedź 1"
-                        v-model="nip"
-                        class="base-input"
-                      />
-                    </div>
-                    <div class="col-span-6 sm:col-span-3 ml-5">
-                      <textarea
-                        type="text"
-                        placeholder="Odpowiedź 2"
-                        v-model="regon"
-                        class="base-input"
-                      />
-                    </div>
-                    <div class="col-span-6 sm:col-span-3">
-                      <textarea
-                        type="text"
-                        placeholder="Odpowiedź 3"
-                        v-model="postcode"
-                        class="base-input"
-                      />
-                    </div>
-                    <div class="col-span-6 sm:col-span-3 ml-5">
-                      <textarea
-                        type="text"
-                        placeholder="Odpowiedź 4"
-                        v-model="city"
-                        class="base-input"
-                      />
-                    </div>
-                  </div>
-                </div>
 
-                <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
-                  <button
-                    class="text-indigo-600 hover:text-white inline-flex justify-center rounded-md border-indigo-600 border-2 py-2 px-4 text-sm font-medium shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                  >
-                    Dodaj kolejne pytanie
-                  </button>
-                </div>
-              </form>
+                  <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
+                    <button
+                      class="text-indigo-600 hover:text-white inline-flex justify-center rounded-md border-indigo-600 border-2 py-2 px-4 text-sm font-medium shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                    >
+                      Dodaj kolejne pytanie
+                    </button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
         </div>
-
         <div class="px-4 py-3 text-right sm:px-6">
           <button
             class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
@@ -251,7 +257,7 @@
 </template>
 <script setup lang="ts">
 import { useSettings } from "@/store/useSettings";
-import { ref, onMounted } from "vue";
+import { ref, onMounted, reactive } from "vue";
 import { Quiz } from "@/store/useQuizzes";
 
 const company_name = ref(null);
@@ -285,8 +291,46 @@ async function NewQuiz() {
   );
 }
 
-const newQuestionInput= ()=>{
-console.log('Nowe pole do odpowiedzi')
+interface form {
+  id: number;
+  name: string;
+  price: number;
 }
+
+const form = reactive([
+  {
+    id: 1,
+    title: "",
+    answer1: "",
+    answer2: "",
+    answer3: "",
+    answer4: "",
+    line:false
+  },
+]);
+
+const newQuestionInput = () => {
+  console.log("Nowe pole do odpowiedzi");
+  console.log(form);
+  form.push({
+    id: 1,
+    title: "",
+    answer1: "",
+    answer2: "",
+    answer3: "",
+    answer4: "",
+    line:true
+  });
+};
 </script>
-<style scoped></style>
+<style scoped>
+.active{
+  border-width: 1px;
+  border-color: black;
+
+}
+.disactive{
+  color: red;
+}
+
+</style>
