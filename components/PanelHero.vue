@@ -190,6 +190,7 @@ function copy(token:string) {
   navigator.clipboard.writeText(token);
   tooltip.value =! tooltip.value
   setTimeout(() => tooltip.value = false, 2300)
+  console.log(token)
 }
 </script>
 

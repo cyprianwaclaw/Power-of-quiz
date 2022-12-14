@@ -49,8 +49,6 @@
                     <label for="first-name" class="base-input-new-quiz-label">
                       Wybierz kategorię</label
                     >
-                    {{ selected }}
-
                     <select v-model="selected" required class="base-input-new-quiz">
                       <option value="" hidden>Kategoria...</option>
                       <option v-for="category in quiz.categories" :key="category.id">
@@ -175,15 +173,13 @@
               </div>
             </div>
             <div class="mt-5 md:col-span-2 md:mt-0">
-              <div class="overflow-hidden shadow rounded-forms-setting">
+              <div class="">
                 <form @submit.prevent="">
-                  <div class="bg-white sm:p-6">
-                    <div class="block mx-8 -mt-6">
-                      <div v-for="(item, index) in form" :key="item.id" class="mt-10">
+                  <div class="">
+                    <div class="block -mt-6">
+                     <div v-for="(item, index) in form" :key="item.id" class="mt-10 shadow rounded-forms-setting  bg-white px-10 py-9 rounded-lg">
                         <div :class="{active: item.line}" class="disactive"></div>
-                        <label class="base-input-new-quiz-label"
-                          >Pytanie {{ index + 1 }}</label
-                        >
+                        <h3 class="mb-8 text-lg font-semibold">Pytanie {{ index + 1 }}</h3>
                         <input
                           type="text"
                           placeholder="Twoje pytanie..."
@@ -196,7 +192,7 @@
                               type="text"
                               placeholder="Odpowiedź 1"
                               v-model="item.answer1"
-                              class="base-input"
+                              class="base-input-new-quiz"
                             />
                           </div>
                           <div class="col-span-6 sm:col-span-3">
@@ -204,7 +200,7 @@
                               type="text"
                               placeholder="Odpowiedź 2"
                               v-model="nip"
-                              class="base-input"
+                              class="base-input-new-quiz"
                             />
                           </div>
                           <div class="col-span-6 sm:col-span-3">
@@ -212,7 +208,7 @@
                               type="text"
                               placeholder="Odpowiedź 3"
                               v-model="nip"
-                              class="base-input"
+                              class="base-input-new-quiz"
                             />
                           </div>
                           <div class="col-span-6 sm:col-span-3">
@@ -220,19 +216,20 @@
                               type="text"
                               placeholder="Odpowiedź 4"
                               v-model="nip"
-                              class="base-input"
+                              class="base-input-new-quiz"
                             />
                           </div>
                         </div>
+                        <div v-if="index > 0">
                         <div v-if="item.line" class="item-question">
                             <button class="revome-answear" @click="remove">Usuń pytanie numer {{ index + 1}}</button>
                         </div>
-                      
+                      </div>
                       </div>
                     </div>
                   </div>
 
-                  <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
+                  <div class="bg-gray-50 px-4 py-3 text-right sm:px-6 -mt-5 bottom-add">
                     <button
                     @click="newQuestionInput"
                       class="text-indigo-600 hover:text-white inline-flex justify-center rounded-md border-indigo-600 border-2 py-2 px-4 text-sm font-medium shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
@@ -253,6 +250,7 @@
           </button>
         </div>
       </form>
+     
     </NuxtLayout>
   </div>
 </template>
@@ -310,16 +308,15 @@ const form = reactive([
   },
 ]);
 
-const remove = () => {
-  console.log("Usuń");
+const remove = (index: any) => {
+ form.splice(index, 1)
 }
-
 
 const newQuestionInput = () => {
   console.log("Nowe pole do odpowiedzi");
   console.log(form);
   form.push({
-    id: 1,
+    id: 2,
     title: "",
     answer1: "",
     answer2: "",
@@ -331,12 +328,15 @@ const newQuestionInput = () => {
 </script>
 <style scoped>
 .active{
-  border-width: 1px;
-  border-color: black;
-
+color:white;
 }
 .disactive{
-  color: red;
+  color:white;
+}
+
+.bottom-add{
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 </style>

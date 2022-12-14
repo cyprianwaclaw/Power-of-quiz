@@ -17,7 +17,7 @@
                   <input
                     type="text"
                     :placeholder="settings.userSettingsPersonal.name"
-                    v-model="name"
+                    v-model="testname"
                     name="first-name"
                     autocomplete="given-name"
                     class="base-input"
@@ -28,7 +28,7 @@
                   <input
                     type="text"
                     :placeholder="settings.userSettingsPersonal.surname"
-                    v-model="surname"
+                    v-model="testsurname"
                     name="first-name"
                     id="first-name"
                     autocomplete="given-name"
@@ -40,7 +40,7 @@
                   <input
                     type="text"
                     :placeholder="settings.userSettingsPersonal.email"
-                    v-model="email"
+                    v-model="testemail"
                     name="first-name"
                     id="first-name"
                     for="given-email"
@@ -53,7 +53,7 @@
                     type="tel"
                     :placeholder="settings.userSettingsPersonal.phone"
                     name="last-name"
-                    v-model="phone"
+                    v-model="testphone"
                     autocomplete="family-name"
                     class="phone-input"
                   />
@@ -102,10 +102,16 @@ import { useUser } from "@/store/useUser";
 import { useSettings } from "@/store/useSettings";
 import { ref, onMounted } from "vue";
 
-const name = ref("");
-const email = ref("");
-const phone = ref("");
-const surname = ref("");
+var testname = ref("");
+var testemail = ref("");
+var testphone = ref("");
+var testsurname = ref("");
+
+
+var name = ref("");
+var email = ref("");
+var phone = ref("");
+var surname = ref("");
 
 
 const settings = useSettings();
@@ -115,8 +121,34 @@ settings.getUserSettingsCompanyAddress();
 settings.getUserSettingsFinancial();
 const user = useUser();
 
+var name1 = testname.value
+const username = settings.userSettingsPersonal.name
+
+
+function testNum(name1:any) {
+  var username = settings.userSettingsPersonal.name;
+  if (name1.length > 0) {
+    name.value = testname.value
+    
+  }else if(name1.length == 2){
+    name.value = "test"
+  }
+   else {
+    name.value = settings.userSettingsPersonal.name
+  }
+  return name.value;
+}
+
+
+
+
+
+
+
 async function UpdatePersonal() {
-  await settings.UpdatePersonal(name.value, surname.value, email.value, phone.value);
+  await settings.UpdateTest(testNum(name.value));
+
+  console.log(testNum(name.value))
 }
 
 </script>

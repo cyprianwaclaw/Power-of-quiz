@@ -44,7 +44,7 @@ export const useSettings = defineStore('settings', {
             }
         },
 
-        async UpdatePersonal(name: string, surname: string, email: string, phone: number) {
+        async UpdatePersonal(name: string, surname: string, email: string, phone:string) {
             try {
                 const res = await axiosInstance.post('/user/settings', { name, surname, email, phone })
                 this.success = await res.data.sucess
@@ -52,6 +52,18 @@ export const useSettings = defineStore('settings', {
                 console.log(e.response.data)
             }
         },
+
+        async UpdateTest(name: string) {
+            try {
+                const res = await axiosInstance.post('/user/settings', { name })
+                this.success = await res.data.sucess
+                window.location.reload();
+            } catch (e) {
+                console.log(e.response.data)
+            }
+        },
+
+
         async UpdateCompany(
             company_name: string,
             nip: string,
