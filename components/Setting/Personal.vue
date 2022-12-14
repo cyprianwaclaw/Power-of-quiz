@@ -146,7 +146,7 @@ function testNum(name1:any) {
 
 
 async function UpdatePersonal() {
-  await settings.UpdateTest(testNum(name.value), testsurname.value);
+  await settings.UpdateTest(testname.value, testsurname.value);
   await window.location.reload();
   await console.log(testNum(name.value))
 }
