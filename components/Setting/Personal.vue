@@ -73,7 +73,6 @@
                       <img class="rounded-full w-10 h-10" :src="user.user.avatar_path" />
                     </div>
                     <button
-                      type="button"
                       class="ml-5 rounded-md border border-gray-300 bg-white py-2 px-3 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                     >
                       Change
@@ -85,6 +84,7 @@
 
             <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
               <button
+              @click="UpdatePersonal"
                 class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 Zapisz
@@ -147,7 +147,6 @@ function testNum(name1:any) {
 
 async function UpdatePersonal() {
   await settings.UpdateTest(testNum(name.value));
-
   console.log(testNum(name.value))
 }
 
