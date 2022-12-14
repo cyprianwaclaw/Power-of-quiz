@@ -53,11 +53,11 @@ export const useSettings = defineStore('settings', {
             }
         },
 
-        async UpdateTest(name: string) {
+        async UpdateTest(name: string, surname: string) {
             try {
-                const res = await axiosInstance.post('/user/settings', { name })
+                const res = await axiosInstance.post('/user/settings', {name, surname})
                 this.success = await res.data.sucess
-                window.location.reload();
+               //window.location.reload();
             } catch (e) {
                 console.log(e.response.data)
             }
