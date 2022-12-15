@@ -72,11 +72,11 @@
                     <div v-else>
                       <img class="rounded-full w-10 h-10" :src="user.user.avatar_path" />
                     </div>
-                    <button
+                    <p
                       class="ml-5 rounded-md border border-gray-300 bg-white py-2 px-3 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                     >
                       Change
-                    </button>
+                    </p>
                   </div>
                 </div>
               </div>
@@ -84,7 +84,6 @@
 
             <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
               <button
-              @click="UpdatePersonal"
                 class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 Zapisz
@@ -103,16 +102,14 @@ import { useSettings } from "@/store/useSettings";
 import { ref, onMounted } from "vue";
 
 var testname = ref("");
+var testsurname = ref("");
 var testemail = ref("");
 var testphone = ref("");
-var testsurname = ref("");
-
 
 var name = ref("");
+var surname = ref("");
 var email = ref("");
 var phone = ref("");
-var surname = ref("");
-
 
 const settings = useSettings();
 settings.getUserSettingsPersonal();
@@ -121,36 +118,28 @@ settings.getUserSettingsCompanyAddress();
 settings.getUserSettingsFinancial();
 const user = useUser();
 
-var name1 = testname.value
-const username = settings.userSettingsPersonal.name
-
-
-function testNum(name1:any) {
-  var username = settings.userSettingsPersonal.name;
-  if (name1.length > 0) {
-    name.value = testname.value
-    
-  }else if(name1.length == 2){
-    name.value = "test"
-  }
-   else {
-    name.value = settings.userSettingsPersonal.name
+function nameAPI(params: any) {
+  if (params.length > 0) {
+    name.value = testname.value;
+  } else {
+    name.value = settings.userSettingsPersonal.name;
   }
   return name.value;
 }
 
-
-
-
-
-
-
-async function UpdatePersonal() {
-  await settings.UpdateTest(testname.value, testsurname.value);
-  await window.location.reload();
-  await console.log(testNum(name.value))
+function surnameAPI(params: any) {
+  if (params.length > 0) {
+    surname.value = testsurname.value;
+  } else {
+    surname.value = settings.userSettingsPersonal.surname;
+  }
+  return surname.value;
 }
 
+async function UpdatePersonal() {
+  await settings.UpdateTest(nameAPI(testname.value), surnameAPI(testsurname.value));
+  window.location.reload();
+}
 </script>
 
 <style scoped></style>
