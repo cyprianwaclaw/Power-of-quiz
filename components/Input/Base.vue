@@ -7,7 +7,7 @@
       autocomplete="given-name"
       class="base-input"
       v-model="model"
-      @input="handleChange"
+      @input="$emit('update:modelValue', $event.target.value)"
     />
     <span class="">{{publishedBooksMessage}}</span>
   </div>
@@ -16,14 +16,15 @@
 <script setup lang="ts">
 import {defineProps, defineEmits}from 'vue'
 
-const model=ref('')
+const model = ref('')
+const input=ref('')
 const testPlaceholder = ref('sdfdf')
 interface Props {
   label1: string,
 }
 
 // const emit = defineEmits(['customChange'])
-const props = defineProps<Props>();
+defineProps<Props>();
 // type-based (TS)
 const emit = defineEmits<{
   (e: 'customChange', id: any): void
