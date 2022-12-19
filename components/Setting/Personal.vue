@@ -13,6 +13,20 @@
             <div class="bg-white sm:p-6">
               <div class="grid grid-cols-6 gap-6 px-8 py-5">
                 <div class="col-span-6 sm:col-span-3">
+                  {{testname}}
+                  <InputBase
+                  label1="Dupa"
+                  placeholder = "TestPlaceholder"
+                 @input="handleCastomChange"
+                  /> 
+
+                  <InputBase
+                  label1="Imię"
+                  placeholder = "test"
+                 @input="handleCastomChange"
+                  />
+
+                  <!-- <div>
                   <label for="first-name" class="base-input-label">Imię</label>
                   <input
                     type="text"
@@ -22,7 +36,11 @@
                     autocomplete="given-name"
                     class="base-input"
                   />
-                </div>
+                  <span class="">{{publishedBooksMessage}}</span>
+                </div> -->
+
+
+               </div>
                 <div class="col-span-6 sm:col-span-3 ml-5">
                   <label for="first-name" class="base-input-label">Nazwisko</label>
                   <input
@@ -99,9 +117,9 @@
 <script setup lang="ts">
 import { useUser } from "@/store/useUser";
 import { useSettings } from "@/store/useSettings";
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
 
-var testname = ref("");
+const  testname = ref<any>("");
 var testsurname = ref("");
 var testemail = ref("");
 var testphone = ref("");
@@ -110,6 +128,15 @@ var name = ref("");
 var surname = ref("");
 var email = ref("");
 var phone = ref("");
+
+
+const handleCastomChange=() =>{
+ return console.log('hello')
+}
+
+const publishedBooksMessage = computed(() => {
+  return testname.value.length > 0 ? 'Yes' : 'No'
+})
 
 const settings = useSettings();
 settings.getUserSettingsPersonal();
@@ -135,10 +162,15 @@ function surnameAPI(params: any) {
   }
   return surname.value;
 }
+console.log(testname.value)
 
 async function UpdatePersonal() {
+  if (testname.value.length <= 0){
+console.log('test error')
+  }else{
   await settings.UpdateTest(nameAPI(testname.value), surnameAPI(testsurname.value));
   window.location.reload();
+  }
 }
 </script>
 
