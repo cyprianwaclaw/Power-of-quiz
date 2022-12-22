@@ -33,7 +33,6 @@ import { useField } from 'vee-validate';
 import { watch, ref } from 'vue';
 
 export default {
-    name: 'BaseInput',
 
     setup(props) {
         var fieldName = props.name.replace(/ /g, '');
