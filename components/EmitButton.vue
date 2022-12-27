@@ -4,16 +4,16 @@
     name="name"
      class="base-input"
      :inputvalue="`${props.inputValue}`"
-     :class="{'is-invalid': !!errors.length }"
+     :class="{'is-invalid': !!errors.length, 'is-valid':!!meta.dirty && meta.valid}"
      :placeholder="`${props.placeholder}`"
       v-model="value"
       @input="$emit('update:modelValue', $event.target.value)"
   
     />  
-
+    <span v-if="meta.valid && meta.touched">✅ Field is valid</span>
 <span class="active">{{ errors[0] }}</span>
 <p>{{ value }}</p>
-<p>{{ meta.valid }}</p>
+<p>{{ meta }}</p>
 </template>
 
 <script setup lang="ts">
@@ -21,8 +21,16 @@ import {ref} from "vue"
 import * as yup from 'yup';
 import { useField } from 'vee-validate';
 import { useSettings } from "@/store/useSettings";
+// import { configure } from 'vee-validate';
+// // Default values
+// configure({
+//   validateOnBlur: true, // controls if `blur` events should trigger validation with `handleChange` handler
+//   validateOnChange: true, // controls if `change` events should trigger validation with `handleChange` handler
+//   validateOnInput: false, // controls if `input` events should trigger validation with `handleChange` handler
+//   validateOnModelUpdate: true, // controls if `update:modelValue` events should trigger validation with `handleChange` handler
+// });
 
-const hasError = ref<boolean>(false)
+
 
 
  const isActive = ref(true)
@@ -54,6 +62,12 @@ const emit = defineEmits(['update:modelValue', 'submitTest'])
   border-width: 1px;
   border-color: red;
 }
+
+.is-valid{
+  border-width: 1px;
+  border-color: green;
+}
+
 
 .active{
   color:red;
