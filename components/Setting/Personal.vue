@@ -14,7 +14,7 @@
               <div class="grid grid-cols-6 gap-6 px-8 py-5">
                 <div class="col-span-6 sm:col-span-3">
                   <EmitButton 
-                  label="Imię"
+                  label="Imissę"
                   @submitTest="showModal=false"
                   :placeholder="settings.userSettingsPersonal.name"
                   v-model="testname"
