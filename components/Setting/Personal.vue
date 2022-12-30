@@ -19,6 +19,7 @@
                   :placeholder="settings.userSettingsPersonal.name"
                   v-model="testname"
                    /> 
+                   {{ testname }}
                   <!-- <div>
                   <label for="first-name" class="base-input-label">Imię</label>
                   <input

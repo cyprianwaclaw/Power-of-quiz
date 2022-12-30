@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { Form } from 'vee-validate';
 import * as Yup from 'yup';
+import { useAuth } from "@/store/useAuth";
 
-const test = ref('')
-console.log(test.value)
-function onSubmit(values) {
-  alert(JSON.stringify(values, null, 2));
+async function onSubmit(values) {
+    const authStore = useAuth();
+    const { email, password } = values;
+    await authStore.LoginUser(email,password);
 }
 
 function onInvalidSubmit() {
@@ -16,16 +17,10 @@ function onInvalidSubmit() {
   }, 1000);
 }
 
-// Using yup to generate a validation schema
-// https://vee-validate.logaretm.com/v4/guide/validation#validation-schemas-with-yup
 const schema = Yup.object().shape({
-  name: Yup.string().required(),
-  email: Yup.string().email().required(),
+  email: Yup.string().email("Błędny email").required("Pole wymagane"),
   password: Yup.string().min(6).required(),
-  confirm_password: Yup.string()
-    .required()
-    .oneOf([Yup.ref('password')], 'Passwords do not match'),
-});
+})
 </script>
 
 <template>
@@ -35,14 +30,6 @@ const schema = Yup.object().shape({
       :validation-schema="schema"
       @invalid-submit="onInvalidSubmit"
     >
-      <TextInput
-        name="name"
-        type="text"
-        label="Full Name"
-        placeholder="Your Name"
-        v-model="test"
-        success-message="Nice to meet you!"
-      />
       <TextInput
         name="email"
         type="email"
@@ -56,13 +43,6 @@ const schema = Yup.object().shape({
         label="Password"
         placeholder="Your password"
         success-message="Nice and secure!"
-      />
-      <TextInput
-        name="confirm_password"
-        type="password"
-        label="Confirm Password"
-        placeholder="Type it again"
-        success-message="Glad you remembered it!"
       />
 
       <button class="submit-btn" type="submit">Submit</button>
