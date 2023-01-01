@@ -34,7 +34,7 @@ const schema = Yup.object().shape({
         name="email"
         type="email"
         label="E-mail"
-        placeholder="Your email address"
+        placeholder="Your email address jbububu"
         success-message="Got it, we won't spam you!"
       />
       <TextInput
