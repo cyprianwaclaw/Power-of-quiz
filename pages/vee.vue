@@ -21,6 +21,12 @@ const schema = Yup.object().shape({
   email: Yup.string().email("Błędny email").required("Pole wymagane"),
   password: Yup.string().min(6).required(),
 })
+
+function myFunction() {
+     document.getElementById("myText").focus();
+}
+
+myFunction();
 </script>
 
 <template>
@@ -31,11 +37,13 @@ const schema = Yup.object().shape({
       @invalid-submit="onInvalidSubmit"
     >
       <TextInput
+        id="myText"
         name="email"
         type="email"
         label="E-mail"
         placeholder="Your email address"
         success-message="Got it, we won't spam you!"
+        autofocus
       />
       <TextInput
         name="password"
