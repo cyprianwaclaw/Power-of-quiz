@@ -1,7 +1,38 @@
+<template>
+  <div>
+    <Form
+      @submit="onSubmit"
+      :validation-schema="schema"
+      @invalid-submit="onInvalidSubmit"
+    >
+      <TextInput
+        name="email"
+        type="email"
+        label="E-mail"
+        placeholder="Your email address"
+        success-message="Got it, we won't spam you!"
+        autofocus
+      />
+      <TextInput
+        name="password"
+        type="password"
+        label="Password"
+        placeholder="Your password"
+        success-message="Nice and secure!"
+      />
+
+      <button class="submit-btn" type="submit">Submit</button>
+    </Form>
+    <input ref="myText" autofocus/>
+  </div>
+</template>
+
 <script setup lang="ts">
 import { Form } from 'vee-validate';
 import * as Yup from 'yup';
 import { useAuth } from "@/store/useAuth";
+
+const myText = ref<any>()
 
 async function onSubmit(values) {
     const authStore = useAuth();
@@ -23,40 +54,14 @@ const schema = Yup.object().shape({
 })
 
 function myFunction() {
-     document.getElementById("myText").focus();
+     myText.value;
 }
+
+
 
 myFunction();
 </script>
 
-<template>
-  <div>
-    <Form
-      @submit="onSubmit"
-      :validation-schema="schema"
-      @invalid-submit="onInvalidSubmit"
-    >
-      <TextInput
-        id="myText"
-        name="email"
-        type="email"
-        label="E-mail"
-        placeholder="Your email address"
-        success-message="Got it, we won't spam you!"
-        autofocus
-      />
-      <TextInput
-        name="password"
-        type="password"
-        label="Password"
-        placeholder="Your password"
-        success-message="Nice and secure!"
-      />
-
-      <button class="submit-btn" type="submit">Submit</button>
-    </Form>
-  </div>
-</template>
 
 <style>
 * {

@@ -6,7 +6,6 @@
     <label :for="name">{{ label }}</label>
     <input
       :name="name"
-      :id="name"
       :type="type"
       :value="inputValue"
       :placeholder="placeholder"
